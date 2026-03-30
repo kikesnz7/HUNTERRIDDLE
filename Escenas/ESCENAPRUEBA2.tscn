@@ -9,4 +9,4 @@ offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="Container" unique_id=901865336]
 layout_mode = 2
-color = Color(0.043137256, 1, 1, 1)
+color = Color(1, 0.82774615, 0.84485775, 1)
