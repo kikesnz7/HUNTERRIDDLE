@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cdafq23nkiof4"]
+
+[node name="Escenaprueba2" type="Node2D" unique_id=1033661987]
+scale = Vector2(9.332798, 8.804892)
+
+[node name="Container" type="Container" parent="." unique_id=1062385720]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Container" unique_id=901865336]
+layout_mode = 2
+color = Color(0.043137256, 1, 1, 1)
