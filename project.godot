@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Nuevo Proyecto de Juego"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/name="HunterRiddle"
+config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
 [physics]
@@ -21,3 +21,4 @@ config/icon="res://icon.svg"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
