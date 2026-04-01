@@ -11,8 +11,20 @@ config_version=5
 [application]
 
 config/name="HunterRiddle"
+run/main_scene="uid://ceqin254r47ub"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

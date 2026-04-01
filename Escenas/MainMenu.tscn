@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ceqin254r47ub"]
+
+[ext_resource type="Script" uid="uid://d3bfmxpgexy4o" path="res://Scripts/main_menu.gd" id="1_3bb84"]
+
+[node name="MainMenu" type="Node2D" unique_id=1033661987]
+scale = Vector2(9.332798, 8.804892)
+script = ExtResource("1_3bb84")
+
+[node name="Botones" type="Control" parent="." unique_id=14855183]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -0.68143934
+offset_right = 116.57811
+offset_bottom = 219.53705
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Botones" unique_id=1128168754]
+layout_mode = 0
+offset_left = -0.10714894
+offset_top = 0.908586
+offset_right = 116.68526
+offset_bottom = 218.4013
+alignment = 1
+
+[node name="Entrar" type="Button" parent="Botones/VBoxContainer" unique_id=1897965915]
+layout_mode = 2
+text = "Entrar"
+
+[node name="Config" type="Button" parent="Botones/VBoxContainer" unique_id=1229639367]
+layout_mode = 2
+text = "Configuración"
+
+[node name="Idioma" type="MenuButton" parent="Botones/VBoxContainer" unique_id=448736407]
+layout_mode = 2
+text = "Idioma"
+
+[node name="Salir" type="Button" parent="Botones/VBoxContainer" unique_id=1432374716]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="Botones/VBoxContainer/Entrar" to="." method="_on_entrar_pressed"]
+[connection signal="pressed" from="Botones/VBoxContainer/Config" to="." method="_on_config_pressed"]
+[connection signal="pressed" from="Botones/VBoxContainer/Idioma" to="." method="_on_iidoma_pressed"]
+[connection signal="pressed" from="Botones/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
