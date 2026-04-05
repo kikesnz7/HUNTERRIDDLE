@@ -11,8 +11,23 @@ config_version=5
 [application]
 
 config/name="HunterRiddle"
+run/main_scene="uid://d3afuf2swmm5f"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=390
+window/size/viewport_height=844
+window/stretch/mode="canvas_items"
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
+[internationalization]
+
+locale/locale_filter_mode=0
 
 [physics]
 
@@ -22,3 +37,4 @@ config/icon="res://icon.svg"
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.9764706, 0.96862745, 0.9529412, 1)
