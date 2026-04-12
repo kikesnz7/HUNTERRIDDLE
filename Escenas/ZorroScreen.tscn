@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c4g0kjibmak7p" path="res://flechaizqValidada.svg" id="1_raibb"]
 [ext_resource type="FontFile" uid="uid://blufchrq548bf" path="res://fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf" id="2_reqkm"]
 [ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_kt2dm"]
+[ext_resource type="FontFile" uid="uid://b56lqtrbltw8y" path="res://fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf" id="4_reqkm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqyw2"]
 content_margin_left = 18.0
@@ -46,6 +47,27 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uf3mq"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt2dm"]
+content_margin_left = 18.0
+content_margin_top = 8.0
+content_margin_right = 18.0
+content_margin_bottom = 14.0
+bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7qdu"]
+bg_color = Color(0.9490196, 0.76862746, 0.65882355, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf3mq"]
+bg_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="ZorroScreen" type="Control" unique_id=892256872]
 layout_mode = 3
@@ -126,3 +148,41 @@ layout_mode = 2
 texture = SubResource("CompressedTexture2D_uf3mq")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="ProgressBand" type="PanelContainer" parent="ScrollContainer/VBoxContainer" unique_id=63583205]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kt2dm")
+
+[node name="ProgVBox" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/ProgressBand" unique_id=886209680]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="PogHBox" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/ProgressBand/ProgVBox" unique_id=1545719610]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ProgLabel" type="Label" parent="ScrollContainer/VBoxContainer/ProgressBand/ProgVBox/PogHBox" unique_id=890523656]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76862746, 0.5372549, 0.43529412, 1)
+theme_override_fonts/font = ExtResource("3_kt2dm")
+theme_override_font_sizes/font_size = 10
+text = "predefinido progreso label"
+
+[node name="PtsLabel" type="Label" parent="ScrollContainer/VBoxContainer/ProgressBand/ProgVBox/PogHBox" unique_id=193494351]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.47843137, 0.1882353, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("4_reqkm")
+theme_override_font_sizes/font_size = 14
+text = "38 pts"
+horizontal_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/VBoxContainer/ProgressBand/ProgVBox" unique_id=2022445657]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_q7qdu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uf3mq")
+step = 1.0
+value = 38.0
+show_percentage = false
