@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d1f11nhnsftid"]
+
+[ext_resource type="Script" uid="uid://17f1ivr20ply" path="res://Escenas/UI/StatPill.gd" id="1_qgh0x"]
+[ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="2_u4d41"]
+[ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_wgsvi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndpye"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8691822, 0.4069171, 0.17578448, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="StatPill" type="PanelContainer" unique_id=664847760]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ndpye")
+script = ExtResource("1_qgh0x")
+
+[node name="PillVBox" type="VBoxContainer" parent="." unique_id=1702351924]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ValueLabel" type="Label" parent="PillVBox" unique_id=184200441]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("2_u4d41")
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="PillVBox" unique_id=1843689924]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.76862746, 0.5372549, 0.43529412, 1)
+theme_override_fonts/font = ExtResource("3_wgsvi")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+uppercase = true
