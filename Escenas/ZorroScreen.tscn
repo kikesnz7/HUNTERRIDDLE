@@ -73,10 +73,21 @@ corner_radius_bottom_left = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reqkm"]
 content_margin_left = 18.0
 content_margin_top = 12.0
-content_margin_right = 18.0
+content_margin_right = 12.0
 content_margin_bottom = 12.0
 bg_color = Color(0.9764706, 0.96862745, 0.9529412, 1)
 border_color = Color(0.12156863, 0.12156863, 0.14509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8h68"]
+border_width_bottom = 1
+border_color = Color(0.87058824, 0.40784314, 0.1764706, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aam2l"]
+bg_color = Color(0.9764706, 0.96862745, 0.9529412, 1)
 
 [node name="ZorroScreen" type="Control" unique_id=892256872]
 layout_mode = 3
@@ -200,22 +211,42 @@ show_percentage = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_reqkm")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/StatsRow" unique_id=566613348]
+[node name="HBox(hotReload))" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/StatsRow" unique_id=566613348]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 24
 alignment = 1
 
-[node name="StatPillCompletados" parent="ScrollContainer/VBoxContainer/StatsRow/HBoxContainer" unique_id=664847760 instance=ExtResource("5_kt2dm")]
+[node name="StatPillCompletados" parent="ScrollContainer/VBoxContainer/StatsRow/HBox(hotReload))" unique_id=664847760 instance=ExtResource("5_kt2dm")]
 layout_mode = 2
 stat_value = "2"
 stat_label = "Completados"
 
-[node name="StatPillTiempo" parent="ScrollContainer/VBoxContainer/StatsRow/HBoxContainer" unique_id=1026030385 instance=ExtResource("5_kt2dm")]
+[node name="StatPillTiempo" parent="ScrollContainer/VBoxContainer/StatsRow/HBox(hotReload))" unique_id=1026030385 instance=ExtResource("5_kt2dm")]
 layout_mode = 2
 stat_value = "07:24"
 stat_label = "Mejor Tiempo"
 
-[node name="StatPillPuntos" parent="ScrollContainer/VBoxContainer/StatsRow/HBoxContainer" unique_id=281754304 instance=ExtResource("5_kt2dm")]
+[node name="StatPillPuntos" parent="ScrollContainer/VBoxContainer/StatsRow/HBox(hotReload))" unique_id=281754304 instance=ExtResource("5_kt2dm")]
 layout_mode = 2
 stat_value = "38"
 stat_label = "Puntos"
+
+[node name="LineaSeparadora" type="PanelContainer" parent="ScrollContainer/VBoxContainer" unique_id=1363202858]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u8h68")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer" unique_id=1940031521]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/MarginContainer" unique_id=1341982878]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5647059, 0.5647059, 0.627451, 1)
+theme_override_fonts/font = ExtResource("3_kt2dm")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_aam2l")
+text = "niveles"
+uppercase = true
