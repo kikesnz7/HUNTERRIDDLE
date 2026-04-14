@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d1f11nhnsftid" path="res://Escenas/UI/StatPill.tscn" id="5_kt2dm"]
 [ext_resource type="FontFile" uid="uid://fhm1ykxrbm73" path="res://fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf" id="6_no4io"]
 [ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://FlechaDerecha-.svg" id="7_wmlck"]
+[ext_resource type="PackedScene" uid="uid://c62r713rdtrp2" path="res://Escenas/UI/LevelCards/LevelCardLOCKED.tscn" id="8_cqbae"]
+[ext_resource type="Script" uid="uid://c10lnt2pp5xbf" path="res://Escenas/UI/scripts/LevelCard.gd" id="9_q7qdu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqyw2"]
 content_margin_left = 18.0
@@ -22,7 +24,7 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.9490196, 0.76862746, 0.65882355, 1)
+bg_color = Color(0.82, 0.66324335, 0.5658, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -129,6 +131,38 @@ corner_radius_top_left = 14
 corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umypk"]
+content_margin_left = 12.0
+content_margin_top = 14.0
+content_margin_right = 12.0
+content_margin_bottom = 14.0
+bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.4)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc3hg"]
+content_margin_left = 12.0
+content_margin_top = 14.0
+content_margin_right = 12.0
+content_margin_bottom = 14.0
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="ZorroScreen" type="Control" unique_id=892256872]
 layout_mode = 3
@@ -370,3 +404,20 @@ size_flags_vertical = 4
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 2
+
+[node name="Level1" parent="ScrollContainer/VBoxContainer/LevelsSection/GridMargin/LevelsGrid" unique_id=627617126 instance=ExtResource("8_cqbae")]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_umypk")
+script = ExtResource("9_q7qdu")
+level_name = "El primer paso"
+stars = 3
+state = 0
+
+[node name="Level2" parent="ScrollContainer/VBoxContainer/LevelsSection/GridMargin/LevelsGrid" unique_id=576737864 instance=ExtResource("8_cqbae")]
+modulate = Color(1, 1, 1, 0.65)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gc3hg")
+script = ExtResource("9_q7qdu")
+level_number = 2
+level_name = "Obstaculos fijos"
