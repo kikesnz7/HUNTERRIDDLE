@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_kt2dm"]
 [ext_resource type="FontFile" uid="uid://b56lqtrbltw8y" path="res://fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf" id="4_reqkm"]
 [ext_resource type="PackedScene" uid="uid://d1f11nhnsftid" path="res://Escenas/UI/StatPill.tscn" id="5_kt2dm"]
+[ext_resource type="FontFile" uid="uid://fhm1ykxrbm73" path="res://fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf" id="6_no4io"]
+[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://FlechaDerecha-.svg" id="7_wmlck"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqyw2"]
 content_margin_left = 18.0
@@ -81,6 +83,7 @@ border_color = Color(0.12156863, 0.12156863, 0.14509805, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8h68"]
 border_width_bottom = 1
 border_color = Color(0.87058824, 0.40784314, 0.1764706, 1)
+border_blend = true
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -88,6 +91,44 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aam2l"]
 bg_color = Color(0.9764706, 0.96862745, 0.9529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reku7"]
+content_margin_left = 16.0
+content_margin_top = 14.0
+content_margin_right = 16.0
+content_margin_bottom = 14.0
+bg_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e2pb"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0.83, 0.5312, 0.38179997, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tq7ck"]
+bg_color = Color(0.83, 0.4814, 0.3071, 1)
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.89, 0.81791, 0.4094, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5j8w"]
+bg_color = Color(0.98, 0.81078666, 0.7056, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
 [node name="ZorroScreen" type="Control" unique_id=892256872]
 layout_mode = 3
@@ -250,3 +291,82 @@ theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxFlat_aam2l")
 text = "niveles"
 uppercase = true
+
+[node name="LevelsSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1005557013]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/LevelsSection" unique_id=274438105]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="TutorialCard" type="PanelContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer" unique_id=495952258]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_reku7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard" unique_id=101225370]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard/HBoxContainer" unique_id=1794444970]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="EstadoLabel" type="Label" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard/HBoxContainer/VBoxContainer" unique_id=1954452459]
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_kt2dm")
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_5e2pb")
+text = "Por hacer"
+vertical_alignment = 1
+
+[node name="TituloLabel" type="Label" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard/HBoxContainer/VBoxContainer" unique_id=1727033771]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_no4io")
+theme_override_font_sizes/font_size = 17
+text = "Tutorial"
+
+[node name="SubtituloLabel" type="Label" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard/HBoxContainer/VBoxContainer" unique_id=216448015]
+layout_mode = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_kt2dm")
+theme_override_font_sizes/font_size = 9
+text = "Aprende a mover bloques"
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard" unique_id=519729071]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tq7ck")
+
+[node name="botonInicioNivel" type="Button" parent="ScrollContainer/VBoxContainer/LevelsSection/MarginContainer/TutorialCard/PanelContainer" unique_id=327881219]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5j8w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wmlck")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cqbae")
+icon = ExtResource("7_wmlck")
+icon_alignment = 1
+
+[node name="GridMargin" type="MarginContainer" parent="ScrollContainer/VBoxContainer/LevelsSection" unique_id=559120908]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="LevelsGrid" type="GridContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/GridMargin" unique_id=671802972]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
