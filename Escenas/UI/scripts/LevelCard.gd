@@ -5,13 +5,10 @@ enum State { DONE, UNLOCKED, LOCKED }
 
 @export var level_number : int    = 1:
 	set(v): level_number = v; _refresh()
-
 @export var level_name   : String = "":
 	set(v): level_name = v; _refresh()
-
 @export var stars        : int    = 0:
 	set(v): stars = v; _refresh()
-
 @export var state        : State  = State.LOCKED:
 	set(v): state = v; _refresh()
 
@@ -34,25 +31,47 @@ func _refresh():
 			modulate.a = 1.0
 			mouse_filter = MOUSE_FILTER_PASS
 			if badge_lbl:
+				badge_lbl.text= "Completado"
 				badge_lbl.add_theme_color_override("font_color", Color("#7A3010"))
-				var styleboxDn = $badge_lbl.get_theme_stylebox("normal") as StyleBoxFlat
-				styleboxDn.bg_color = Color.SANDY_BROWN
+				var stylebox = badge_lbl.get_theme_stylebox("normal") as StyleBoxFlat
+				if stylebox:
+					stylebox.bg_color = Color("faebe7ff")
+
 		State.UNLOCKED:
 			_set_style(Color("#FBF0E9"), Color("#D4622A", 0.2), "nuevo")
 			modulate.a = 1.0
 			mouse_filter = MOUSE_FILTER_PASS
 			if badge_lbl:
-				badge_lbl.add_theme_color_override("font_color", Color("#FBF0E9"))
-				var styleboxUnl = $badge_lbl.get_theme_stylebox("normal") as StyleBoxFlat
-				styleboxUnl.bg_color = Color.DARK_ORANGE
+				badge_lbl.text = "Desbloqueado"
+				badge_lbl.add_theme_color_override("font_color", Color("#7A3010"))
+				var stylebox = badge_lbl.get_theme_stylebox("normal") as StyleBoxFlat
+				if stylebox:
+					stylebox.bg_color = Color("faebe7ff")
+
 		State.LOCKED:
 			_set_style(Color("#F4F2EF"), Color("#9090A0", 0.2), "bloqueado")
 			modulate.a = 0.65
 			mouse_filter = MOUSE_FILTER_IGNORE
 			if badge_lbl:
+				badge_lbl.text= "Bloqueado"
 				badge_lbl.add_theme_color_override("font_color", Color("#9090A0"))
-				var stylebox = $badge_lbl.get_theme_stylebox("normal") as StyleBoxFlat
-				stylebox.bg_color = Color.DARK_ORANGE
+				var stylebox = badge_lbl.get_theme_stylebox("normal") as StyleBoxFlat
+				if stylebox:
+					stylebox.bg_color = Color("faebe7ff")
+
+	_refresh_stars()
+
+func _refresh_stars():
+	for i in range(1, 4):
+		var star = find_child("Star%d" % i, true, false)
+		if not star:
+			continue
+		if state == State.LOCKED:
+			star.modulate = Color("#CCCCCC")
+		elif i <= stars:
+			star.modulate = Color("#D4622A")
+		else:
+			star.modulate = Color("#DDDDDD")
 
 func _set_style(bg: Color, border: Color, badge: String):
 	var sb = StyleBoxFlat.new()

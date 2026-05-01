@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3j4ac0th6oxp"
-path="res://.godot/imported/gemini-svg.svg-31d398ae16b839428fcb1e00a49f981b.ctex"
+uid="uid://c4g0kjibmak7p"
+path="res://.godot/imported/flechaizqValidada.svg-1a52182f31a1604ea72a3e55f8186a35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gemini-svg.svg"
-dest_files=["res://.godot/imported/gemini-svg.svg-31d398ae16b839428fcb1e00a49f981b.ctex"]
+source_file="res://assets PROV/flechaizqValidada.svg"
+dest_files=["res://.godot/imported/flechaizqValidada.svg-1a52182f31a1604ea72a3e55f8186a35.ctex"]
 
 [params]
 

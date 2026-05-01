@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bw58vc3xfmjdw"]
+[gd_scene format=3 uid="uid://b1mvywveym5sm"]
 
-[ext_resource type="FontFile" uid="uid://bvyjesfulacui" path="res://fonts/Space_Mono/SpaceMono-Bold.ttf" id="1_y30ru"]
-[ext_resource type="FontFile" uid="uid://c63mplgu8mp8q" path="res://fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf" id="2_nk08j"]
-[ext_resource type="FontFile" uid="uid://b611jufxnhg27" path="res://fonts/Space_Mono/SpaceMono-BoldItalic.ttf" id="3_v4qb7"]
+[ext_resource type="FontFile" uid="uid://bvyjesfulacui" path="res://fonts/Space_Mono/SpaceMono-Bold.ttf" id="1_d404t"]
+[ext_resource type="FontFile" uid="uid://c63mplgu8mp8q" path="res://fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf" id="2_j5f88"]
+[ext_resource type="FontFile" uid="uid://b611jufxnhg27" path="res://fonts/Space_Mono/SpaceMono-BoldItalic.ttf" id="3_cdrk1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1ch8"]
 bg_color = Color(0.98039216, 0.9254902, 0.8901961, 1)
@@ -18,7 +18,7 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5yt5"]
 content_margin_left = 3.0
-bg_color = Color(0.8826248, 0.41363585, 0.17914131, 1)
+bg_color = Color(0.93, 0.706335, 0.5673, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -42,10 +42,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n1ch8")
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="badgeLabel" type="Label" parent="VBoxContainer" unique_id=1671514319]
+[node name="BadgeLabel" type="Label" parent="VBoxContainer" unique_id=1671514319]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8826248, 0.41363585, 0.17914131, 1)
-theme_override_fonts/font = ExtResource("1_y30ru")
+theme_override_fonts/font = ExtResource("1_d404t")
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_x5yt5")
 text = "completado"
@@ -53,13 +53,13 @@ text = "completado"
 [node name="NumberLabel" type="Label" parent="VBoxContainer" unique_id=220174165]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8826248, 0.41363585, 0.17914131, 1)
-theme_override_fonts/font = ExtResource("2_nk08j")
+theme_override_fonts/font = ExtResource("2_j5f88")
 theme_override_font_sizes/font_size = 22
 
 [node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=763894063]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.63, 0.39080998, 0.20789999, 1)
-theme_override_fonts/font = ExtResource("3_v4qb7")
+theme_override_fonts/font = ExtResource("3_cdrk1")
 theme_override_font_sizes/font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_qooiw")
 

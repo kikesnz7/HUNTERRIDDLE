@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m8rytcfmk5wd"
-path="res://.godot/imported/FlechaDerecha-.svg-9cfd90a7a23883eba73bf6e08ed4e0c4.ctex"
+uid="uid://dcr34nxksd6ty"
+path="res://.godot/imported/NAVICON-casa.png-115072e62ed27aa79c2accb7160de1fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://FlechaDerecha-.svg"
-dest_files=["res://.godot/imported/FlechaDerecha-.svg-9cfd90a7a23883eba73bf6e08ed4e0c4.ctex"]
+source_file="res://assets PROV/NAVICON-casa.png"
+dest_files=["res://.godot/imported/NAVICON-casa.png-115072e62ed27aa79c2accb7160de1fa.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
