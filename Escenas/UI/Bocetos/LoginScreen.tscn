@@ -19,45 +19,41 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -165.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=776093319]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.2260001
-anchor_bottom = 0.64500004
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 4.8599854
-offset_bottom = 17.619995
+anchor_right = 1.7830001
+anchor_bottom = 1.0
+offset_right = -17.175018
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.920979, 0.97330815, 0.9801448, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=904743577]
-custom_minimum_size = Vector2(350, 350)
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.592
-offset_left = 25.0
-offset_top = 84.0
-offset_right = 71.0
-offset_bottom = -0.36401367
+anchor_right = 1.8270001
+anchor_bottom = 0.58100003
+offset_left = 1.0
+offset_top = 30.0
+offset_right = -24.075043
+offset_bottom = -54.364014
 theme_override_styles/panel = SubResource("StyleBoxFlat_3nsn5")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1041669720]
 layout_mode = 2
 theme = SubResource("Theme_3nsn5")
-theme_override_constants/margin_left = 40
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=884233828]
 layout_mode = 2
-size_flags_stretch_ratio = 1.25
 focus_neighbor_bottom = NodePath("LineEdit2")
 
 [node name="HunterRidddle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1797142590]
