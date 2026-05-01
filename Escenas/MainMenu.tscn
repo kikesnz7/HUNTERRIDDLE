@@ -1,43 +1,65 @@
 [gd_scene format=3 uid="uid://ceqin254r47ub"]
 
-[ext_resource type="Script" uid="uid://d3bfmxpgexy4o" path="res://Scripts/main_menu.gd" id="1_3bb84"]
+[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets/Background 2.png" id="2_jg0v5"]
 
-[node name="MainMenu" type="Node2D" unique_id=1033661987]
-scale = Vector2(9.332798, 8.804892)
-script = ExtResource("1_3bb84")
+[node name="Main Menu" type="CanvasLayer" unique_id=1669501279]
 
-[node name="Botones" type="Control" parent="." unique_id=14855183]
-layout_mode = 3
-anchors_preset = 0
-offset_top = -0.68143934
-offset_right = 116.57811
-offset_bottom = 219.53705
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1615365522]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jg0v5")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Botones" unique_id=1128168754]
-layout_mode = 0
-offset_left = -0.10714894
-offset_top = 0.908586
-offset_right = 116.68526
-offset_bottom = 218.4013
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1469283586]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -139.0
+offset_right = 58.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=166021702]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1504628270]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=1181245164]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=564551991]
+layout_mode = 2
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Entrar" type="Button" parent="Botones/VBoxContainer" unique_id=1897965915]
+[node name="Entrar" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2030671715]
 layout_mode = 2
+size_flags_vertical = 0
 text = "Entrar"
 
-[node name="Config" type="Button" parent="Botones/VBoxContainer" unique_id=1229639367]
+[node name="Config" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1616326423]
 layout_mode = 2
 text = "Configuración"
 
-[node name="Idioma" type="MenuButton" parent="Botones/VBoxContainer" unique_id=448736407]
+[node name="Idioma" type="MenuButton" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=320544089]
 layout_mode = 2
 text = "Idioma"
+item_count = 1
+popup/item_0/text = "Español"
+popup/item_0/id = 0
 
-[node name="Salir" type="Button" parent="Botones/VBoxContainer" unique_id=1432374716]
+[node name="Salir" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1330098769]
 layout_mode = 2
 text = "Salir"
-
-[connection signal="pressed" from="Botones/VBoxContainer/Entrar" to="." method="_on_entrar_pressed"]
-[connection signal="pressed" from="Botones/VBoxContainer/Config" to="." method="_on_config_pressed"]
-[connection signal="pressed" from="Botones/VBoxContainer/Idioma" to="." method="_on_iidoma_pressed"]
-[connection signal="pressed" from="Botones/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
