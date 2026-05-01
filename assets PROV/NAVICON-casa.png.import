@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3j4ac0th6oxp"
-path="res://.godot/imported/gemini-svg.svg-31d398ae16b839428fcb1e00a49f981b.ctex"
+uid="uid://dcr34nxksd6ty"
+path="res://.godot/imported/NAVICON-casa.png-115072e62ed27aa79c2accb7160de1fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gemini-svg.svg"
-dest_files=["res://.godot/imported/gemini-svg.svg-31d398ae16b839428fcb1e00a49f981b.ctex"]
+source_file="res://assets PROV/NAVICON-casa.png"
+dest_files=["res://.godot/imported/NAVICON-casa.png-115072e62ed27aa79c2accb7160de1fa.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

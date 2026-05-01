@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c2axnrs5b87m5"]
+
+[node name="PuzzleZorro" type="Control" unique_id=1100072685]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=429577229]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=346058206]
+layout_mode = 2
