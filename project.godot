@@ -15,6 +15,10 @@ run/main_scene="uid://dwxdvlia3e1kb"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://assets PROV/icon.svg"
 
+[autoload]
+
+Supabase="*uid://eekrb4dsdvfi"
+
 [display]
 
 window/size/viewport_width=390

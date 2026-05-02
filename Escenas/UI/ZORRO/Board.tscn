@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://v4nd5y83lymj"]
+
+[ext_resource type="Script" uid="uid://bd2dp7mmocbo6" path="res://Escenas/UI/ZORRO/board.gd" id="1_lp42c"]
+
+[node name="Board" type="GridContainer" unique_id=974917927]
+script = ExtResource("1_lp42c")
