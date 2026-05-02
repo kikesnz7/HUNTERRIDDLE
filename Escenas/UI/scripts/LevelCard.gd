@@ -19,7 +19,8 @@ func _refresh():
 	var num_lbl   = find_child("NumberLabel", true, false)
 	var name_lbl  = find_child("NameLabel",   true, false)
 	var badge_lbl = find_child("BadgeLabel",  true, false)
-
+	var Enter:Button = find_child("Entrar",  true, false)
+	
 	if num_lbl:
 		num_lbl.text = "%02d" % level_number
 	if name_lbl:
@@ -30,6 +31,7 @@ func _refresh():
 			_set_style(Color("#FBF0E9"), Color("#D4622A", 0.4), "completado")
 			modulate.a = 1.0
 			mouse_filter = MOUSE_FILTER_PASS
+			Enter.disabled= false
 			if badge_lbl:
 				badge_lbl.text= "Completado"
 				badge_lbl.add_theme_color_override("font_color", Color("#7A3010"))
@@ -41,6 +43,7 @@ func _refresh():
 			_set_style(Color("#FBF0E9"), Color("#D4622A", 0.2), "nuevo")
 			modulate.a = 1.0
 			mouse_filter = MOUSE_FILTER_PASS
+			Enter.disabled= false
 			if badge_lbl:
 				badge_lbl.text = "Desbloqueado"
 				badge_lbl.add_theme_color_override("font_color", Color("#7A3010"))
@@ -52,6 +55,7 @@ func _refresh():
 			_set_style(Color("#F4F2EF"), Color("#9090A0", 0.2), "bloqueado")
 			modulate.a = 0.65
 			mouse_filter = MOUSE_FILTER_IGNORE
+			Enter.disabled= true
 			if badge_lbl:
 				badge_lbl.text= "Bloqueado"
 				badge_lbl.add_theme_color_override("font_color", Color("#9090A0"))

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6s7et7jjaxy4"]
+
+[ext_resource type="Script" uid="uid://eekrb4dsdvfi" path="res://addons/supabase/Supabase/supabase.gd" id="1_qlxm5"]
+
+[node name="Node2D" type="Node2D" unique_id=1285187959]
+script = ExtResource("1_qlxm5")
