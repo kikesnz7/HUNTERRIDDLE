@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnix0mqvx4px0"]
 
-[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets/Background 2.png" id="1_31e86"]
+[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets/Background.png" id="1_31e86"]
 [ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_sj5ep"]
 
 [node name="Configuracion" type="CanvasLayer" unique_id=885813466]
