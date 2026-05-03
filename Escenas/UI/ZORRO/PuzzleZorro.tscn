@@ -51,18 +51,17 @@ bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
 
 [node name="PuzzleZorro" type="Control" unique_id=1100072685]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -390.0
-offset_bottom = -844.0
+anchor_bottom = 0.46
+offset_right = 19.0
+offset_bottom = -0.2000122
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_guxig")
 
 [node name="PuzzleTopBar" type="PanelContainer" parent="." unique_id=429577229]
 layout_mode = 0
-offset_right = 388.0
+offset_right = 1076.0
 offset_bottom = 65.0
 
 [node name="TopBar" type="PanelContainer" parent="PuzzleTopBar" unique_id=2072488233]
@@ -90,7 +89,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="NivelTitulo" type="Label" parent="PuzzleTopBar/TopBar/HBoxContainer/VBoxContainer" unique_id=645733176]
+[node name="LevelTitle" type="Label" parent="PuzzleTopBar/TopBar/HBoxContainer/VBoxContainer" unique_id=645733176]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.1882353, 0.0627451, 1)
 theme_override_fonts/font = SubResource("FontVariation_2ucba")
@@ -99,7 +98,7 @@ text = "NIvel Ejemplo"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="MovesCounter" type="Label" parent="PuzzleTopBar/TopBar/HBoxContainer/VBoxContainer" unique_id=1536341399]
+[node name="MoveCounter" type="Label" parent="PuzzleTopBar/TopBar/HBoxContainer/VBoxContainer" unique_id=1536341399]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
 theme_override_fonts/font = ExtResource("3_rxi3g")
@@ -109,9 +108,10 @@ horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1835853444]
 layout_mode = 0
-offset_top = 65.0
-offset_right = 389.0
-offset_bottom = 739.0
+offset_left = 16.0
+offset_top = 115.0
+offset_right = 1063.0
+offset_bottom = 597.0
 
 [node name="Board" parent="CenterContainer" unique_id=974917927 instance=ExtResource("5_f7sl2")]
 layout_mode = 2
@@ -120,7 +120,7 @@ layout_mode = 2
 layout_mode = 0
 offset_left = -1.0
 offset_top = 741.0
-offset_right = 390.0
+offset_right = 1062.0
 offset_bottom = 844.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ucba")
 
@@ -139,7 +139,7 @@ layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="TimerLab" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1743148845]
+[node name="TimerLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1743148845]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
 text = "00:00"
@@ -190,3 +190,36 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = ExtResource("4_rxi3g")
 icon = ExtResource("5_guxig")
+
+[node name="CompletionOverlay" type="CanvasLayer" parent="." unique_id=707985181]
+
+[node name="CompletionPanel" type="PanelContainer" parent="CompletionOverlay" unique_id=1830341550]
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 1097.0
+offset_bottom = 768.0
+
+[node name="CompletionVbox" type="VBoxContainer" parent="CompletionOverlay/CompletionPanel" unique_id=1312288210]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="CompletionMsg" type="Label" parent="CompletionOverlay/CompletionPanel/CompletionVbox" unique_id=1788785602]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CompletionOverlay/CompletionPanel/CompletionVbox" unique_id=842575966]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CompletionOverlay/CompletionPanel/CompletionVbox" unique_id=1134112478]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="NextBtn" type="Button" parent="CompletionOverlay/CompletionPanel/CompletionVbox/HBoxContainer" unique_id=258923007]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
+theme_override_styles/normal = ExtResource("4_rxi3g")
+text = "  Siguiente nivel "
+icon = ExtResource("5_guxig")
+alignment = 0
+icon_alignment = 2

@@ -10,6 +10,11 @@ const TARGET   := 4
 const MIRROR   := 5
 const TOGGLE   := 6
 
+const DIR_RIGHT := Vector2i(0,  1)
+const DIR_LEFT  := Vector2i(0, -1)
+const DIR_DOWN  := Vector2i(1,  0)
+const DIR_UP    := Vector2i(-1, 0)
+
 # ── Colores ───────────────────────────────────────────────────────────────
 const FOX_BG    := Color("#FBF0E9")
 const FOX_LIGHT := Color("#F2C4A8")
@@ -28,6 +33,7 @@ var _grid       : Array = []   # Array 2D [fila][col] de tipo int
 var _size       : int   = 0
 var _cells      : Array = []   # Array 2D [fila][col] de nodos Cell
 var _cell_scene : PackedScene  # se asigna en _ready
+var _beam_dir : Vector2i = Vector2i(1, 0)
 
 # Drag & drop
 var _dragging       : bool    = false
@@ -49,10 +55,10 @@ func _process(_delta: float) -> void:
 # ── API pública ───────────────────────────────────────────────────────────
 func setup(data: Dictionary) -> void:
 	_size = data.get("size", 4)
+	_beam_dir = data.get("beam_dir", Vector2i(1, 0)) as Vector2i
 	_grid = []
 	for row in data["grid"]:
 		_grid.append(row.duplicate())
-
 	columns = _size
 	_build_cells()
 
@@ -60,27 +66,46 @@ func simulate_beam() -> void:
 	_clear_beam()
 	var origin := _find_cell_of_type(ORIGIN)
 	if origin == Vector2i(-1, -1):
+		push_warning("No hay celda ORIGIN en el grid")
 		return
 
-	# Stub temporal hasta implementar HazDeLight.gd
-	var path: Array[Vector2i] = [origin]
-	var current := origin
-	var dir := Vector2i(1, 0)
-	for i in _size * 4:
+	# Propagar el haz celda a celda
+	var path : Array[Vector2i] = [origin]
+	var current  := origin
+	var dir      := _beam_dir
+
+	for i in _size * _size:
 		var next := current + dir
+		# Salió del tablero
 		if next.x < 0 or next.x >= _size or next.y < 0 or next.y >= _size:
 			break
-		if _grid[next.x][next.y] == FIXED or _grid[next.x][next.y] == MOVABLE:
+		var tipo : int = _grid[next.x][next.y]
+		# Obstáculo: el haz para antes de entrar
+		if tipo == FIXED or tipo == MOVABLE:
 			break
+		# Avanza a la siguiente celda
 		path.append(next)
 		current = next
-		if _grid[current.x][current.y] == TARGET:
+		# Espejo: añadir el punto y girar
+		if tipo == MIRROR:
+			dir = _reflect(dir)
+			continue
+		# Llegó al destino
+		if tipo == TARGET:
 			_draw_beam(path)
 			emit_signal("beam_reached_target")
 			return
 
 	_draw_beam(path)
-
+	
+func _reflect(dir: Vector2i) -> Vector2i:
+	# Espejo ╱ a 45°: (fila, col) → (-col, -fila) no, intercambia y niega
+	# →  se convierte en ↓
+	# ↓  se convierte en →
+	# ←  se convierte en ↑
+	# ↑  se convierte en ←
+	return Vector2i(dir.y, dir.x)
+	
 # ── Construcción del tablero ──────────────────────────────────────────────
 func _build_cells() -> void:
 	# Limpiar hijos previos
@@ -174,35 +199,36 @@ func _on_toggle_requested(row: int, col: int) -> void:
 	_clear_beam()
 
 # ── Dibujo del haz ────────────────────────────────────────────────────────
-func _draw_beam(path: Array) -> void:
+func _draw_beam(path: Array[Vector2i]) -> void:
 	if path.size() < 2:
 		return
 
-	# Convertir coordenadas de grilla a posiciones globales (centro de celda)
-	var points : Array[Vector2] = []
-	for coord in path:
-		points.append(_grid_to_global_center(coord))
+	# Esperar un frame para que global_position de las celdas esté estable
+	await get_tree().process_frame
 
 	var line := Line2D.new()
-	line.width         = 3.0
-	line.default_color = GOLD
-	line.joint_mode    = Line2D.LINE_JOINT_ROUND
-	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	line.end_cap_mode   = Line2D.LINE_CAP_ROUND
-	line.z_index        = 5
+	line.width           = 3.0
+	line.default_color   = Color("#D4A843")
+	line.joint_mode      = Line2D.LINE_JOINT_ROUND
+	line.begin_cap_mode  = Line2D.LINE_CAP_ROUND
+	line.end_cap_mode    = Line2D.LINE_CAP_ROUND
+	line.z_index         = 5
 	add_child(line)
 
-	# Animar el haz con Tween (aparición progresiva)
-	line.points = PackedVector2Array(points)
-	line.modulate.a = 0.0
-	var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tw.tween_property(line, "modulate:a", 1.0, 0.3)
+	var points := PackedVector2Array()
+	for coord in path:
+		# Convertir coordenada de grilla a posición local del Board
+		var cell : PanelContainer = _cells[coord.x][coord.y]
+		var center : Vector2 = cell.position + cell.size / 2.0
+		points.append(center)
 
+	line.points = points
 	_beam_lines.append(line)
 
 func _clear_beam() -> void:
 	for line in _beam_lines:
-		line.queue_free()
+		if is_instance_valid(line):
+			line.queue_free()
 	_beam_lines.clear()
 
 # ── Utilidades de coordenadas ─────────────────────────────────────────────

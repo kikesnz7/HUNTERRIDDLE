@@ -56,17 +56,18 @@ func _ready() -> void:
 		push_warning("Board no encontrado en PuzzleScreen")
 	# Nivel de prueba temporal
 	var test_level := {
-		"name": "Nivel Ejemplo",
-		"size": 5,
-		"grid": [
-			[0, 1, 0, 0, 0],
-			[3, 0, 2, 0, 0],
-			[0, 0, 0, 2, 0],
-			[0, 1, 0, 0, 0],
-			[0, 0, 0, 0, 4]
-		],
-		"moves_par": 3
-	}
+	"name": "Nivel Ejemplo",
+	"size": 5,
+	"grid": [
+		[0, 1, 0, 0, 0],
+		[3, 0, 2, 0, 5],
+		[0, 0, 0, 2, 0],
+		[0, 1, 0, 0, 0],
+		[0, 0, 0, 0, 4]
+	],
+	"moves_par": 3,
+	"beam_dir": Vector2i(0, 1)   # ← dirección inicial: derecha
+}
 	load_level(test_level)
 func _process(delta: float) -> void:
 	if _timer_active:

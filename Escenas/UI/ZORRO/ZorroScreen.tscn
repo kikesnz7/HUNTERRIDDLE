@@ -392,11 +392,11 @@ stretch_mode = 5
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1909041978]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.9
-anchor_bottom = 0.95
+anchor_right = 0.96500003
+anchor_bottom = 1.0
 offset_top = 65.0
-offset_right = 40.0
-offset_bottom = -56.0
+offset_right = 39.799927
+offset_bottom = -446.0
 follow_focus = true
 horizontal_scroll_mode = 0
 
@@ -490,7 +490,7 @@ uppercase = true
 [node name="LevelsSection" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1005557013]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 60
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/LevelsSection" unique_id=274438105]
 layout_mode = 2
@@ -561,6 +561,7 @@ theme_override_constants/margin_bottom = 14
 
 [node name="LevelsGrid" type="GridContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid" unique_id=671802972]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
@@ -568,6 +569,7 @@ columns = 2
 
 [node name="Level1" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=627617126 instance=ExtResource("9_tob8f")]
 modulate = Color(1, 1, 1, 1)
+custom_minimum_size = Vector2(250, 125)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_5km3d")
@@ -577,6 +579,7 @@ state = 1
 
 [node name="Level2" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=576737864 instance=ExtResource("9_tob8f")]
 modulate = Color(1, 1, 1, 1)
+custom_minimum_size = Vector2(250, 170)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_yse72")
@@ -586,6 +589,7 @@ state = 1
 
 [node name="LevelCard" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=302443810 instance=ExtResource("9_tob8f")]
 modulate = Color(1, 1, 1, 1)
+custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_224kd")
@@ -603,6 +607,7 @@ level_name = "Bloques increibles"
 state = 1
 
 [node name="LevelCard3" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=204586736 instance=ExtResource("9_tob8f")]
+custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jm4h3")
 
@@ -611,6 +616,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_boggr")
 
 [node name="LevelCard5" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=78083428 instance=ExtResource("9_tob8f")]
+custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fdoss")
 
@@ -619,6 +625,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p1t2i")
 
 [node name="LevelCard7" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=1660661289 instance=ExtResource("9_tob8f")]
+custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tob8f")
 
@@ -633,7 +640,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -56.0
+offset_top = -435.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
@@ -641,7 +648,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8wupg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BottomBar" unique_id=1595488214]
 layout_mode = 2
-theme_override_constants/separation = 110
+theme_override_constants/separation = 300
 alignment = 1
 
 [node name="NavItem3" parent="BottomBar/HBoxContainer" unique_id=1847018352 instance=ExtResource("10_sec8w")]
