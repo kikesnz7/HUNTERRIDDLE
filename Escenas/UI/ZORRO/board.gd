@@ -37,7 +37,7 @@ var _beam_dir : Vector2i = Vector2i(1, 0)
 
 # Drag & drop
 var _dragging       : bool    = false
-var _drag_cell      : Node    = null   # Cell origen del arrastre
+var _drag_ghost     : Panel     = null   # nodo visual que sigue al dedo
 var _drag_from      : Vector2i = Vector2i(-1, -1)
 var _drag_offset    : Vector2 = Vector2.ZERO
 
@@ -49,9 +49,20 @@ func _ready() -> void:
 	_cell_scene = preload("res://Escenas/UI/ZORRO/Cell.tscn")
 
 func _process(_delta: float) -> void:
-	if _dragging and _drag_cell:
-		_drag_cell.global_position = get_global_mouse_position() - _drag_offset
+	if _dragging and _drag_ghost:
+		_drag_ghost.global_position = get_global_mouse_position() - _drag_offset
 
+func _input(event: InputEvent) -> void:
+	if not _dragging:
+		return
+	if event is InputEventMouseButton:
+		var e := event as InputEventMouseButton
+		if e.button_index == MOUSE_BUTTON_LEFT and not e.pressed:
+			_on_drag_released()
+	elif event is InputEventScreenTouch:
+		var e := event as InputEventScreenTouch
+		if not e.pressed:
+			_on_drag_released()
 # ── API pública ───────────────────────────────────────────────────────────
 func setup(data: Dictionary) -> void:
 	_size = data.get("size", 4)
@@ -125,7 +136,6 @@ func _build_cells() -> void:
 			cell.setup(r, c, _grid[r][c], cell_size)
 			# Conectar señales de input del Cell
 			cell.drag_started.connect(_on_cell_drag_started.bind(r, c))
-			cell.drag_released.connect(_on_cell_drag_released)
 			cell.toggle_requested.connect(_on_toggle_requested.bind(r, c))
 			row_arr.append(cell)
 		_cells.append(row_arr)
@@ -135,34 +145,56 @@ func _compute_cell_size() -> float:
 	var available := get_viewport_rect().size.x - 80.0
 	return floor(available / _size)
 
-# ── Drag & drop ───────────────────────────────────────────────────────────
-func _on_cell_drag_started(cell: Node, local_touch: Vector2, row: int, col: int) -> void:
+func _on_cell_drag_started(cell: Node, cell_global_pos: Vector2, row: int, col: int) -> void:
 	if _grid[row][col] != MOVABLE:
 		return
-	_dragging    = true
-	_drag_cell   = cell
-	_drag_from   = Vector2i(row, col)
-	_drag_offset = local_touch
-	# Llevar la celda al frente visualmente
-	cell.z_index = 10
+	_dragging  = true
+	_drag_from = Vector2i(row, col)
+	_drag_offset = get_global_mouse_position() - cell_global_pos
+	_drag_ghost = Panel.new()
+	var cell_node := _cells[row][col] as PanelContainer
+	_drag_ghost.custom_minimum_size = cell_node.size
+	_drag_ghost.size = cell_node.size
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color("#F2C4A8")
+	style.border_color = Color("#D4622A")
+	style.border_width_left   = 2
+	style.border_width_right  = 2
+	style.border_width_top    = 2
+	style.border_width_bottom = 2
+	style.corner_radius_top_left     = 6
+	style.corner_radius_top_right    = 6
+	style.corner_radius_bottom_left  = 6
+	style.corner_radius_bottom_right = 6
+	_drag_ghost.add_theme_stylebox_override("panel", style)
+	_drag_ghost.z_index = 10
+	_drag_ghost.global_position = cell_global_pos
+	get_parent().add_child(_drag_ghost)
 
-func _on_cell_drag_released(cell: Node) -> void:
+
+func _on_drag_released() -> void:
 	if not _dragging:
 		return
 	_dragging = false
-	cell.z_index = 0
 
-	# Determinar celda destino por posición del mouse
-	var target_pos := get_global_mouse_position()
-	var dest       := _global_pos_to_grid(target_pos)
+	# Determinar celda destino por posición actual del fantasma
+	var ghost_center : Vector2 = _drag_ghost.global_position + _drag_ghost.size / 2.0
+	var dest := _global_pos_to_grid(ghost_center)
+
+	# Eliminar fantasma
+	_drag_ghost.queue_free()
+	_drag_ghost = null
 
 	if _is_valid_drop(dest):
 		_move_block(_drag_from, dest)
 	else:
-		# Devolver la celda a su posición original
-		_cells[_drag_from.x][_drag_from.y].snap_back()
+		# No hace falta snap_back porque la celda real nunca se movió
+		pass
 
-	_drag_cell = null
+	_drag_from = Vector2i(-1, -1)
+
+
+
 
 func _is_valid_drop(dest: Vector2i) -> bool:
 	if dest.x < 0 or dest.x >= _size or dest.y < 0 or dest.y >= _size:
@@ -173,15 +205,12 @@ func _is_valid_drop(dest: Vector2i) -> bool:
 
 func _move_block(from: Vector2i, to: Vector2i) -> void:
 	# Actualizar datos lógicos
-	_grid[to.x][to.y]     = MOVABLE
+	_grid[to.x][to.y]   = MOVABLE
 	_grid[from.x][from.y] = EMPTY
 
 	# Actualizar nodos visuales
 	_cells[to.x][to.y].set_type(MOVABLE)
 	_cells[from.x][from.y].set_type(EMPTY)
-
-	# Devolver la celda arrastrada a su posición de grilla
-	_drag_cell.snap_back()
 
 	# Limpiar el haz anterior (el jugador deberá volver a simular)
 	_clear_beam()
