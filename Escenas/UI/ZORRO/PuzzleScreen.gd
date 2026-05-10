@@ -63,7 +63,7 @@ func _ready() -> void:
 		[3, 0, 2, 0, 5],
 		[0, 0, 0, 2, 0],
 		[0, 1, 0, 0, 0],
-		[0, 0, 0, 0, 4]
+		[5, 0, 0, 0, 4]
 	],
 	"moves_par": 3,
 	"beam_dir": Vector2i(0, 1)   # ← dirección inicial: derecha
@@ -81,7 +81,7 @@ func load_level(data: Dictionary) -> void:
 	_elapsed    = 0.0
 	_timer_active = true
 	overlay.visible = false
-
+	print("Cargandonivel... ")
 	level_title.text  = data.get("name", "Nivel")
 	par_label.text    = "Par: %d" % data.get("moves_par", 0)
 	_refresh_move_counter()
@@ -106,6 +106,7 @@ func _on_block_moved() -> void:
 	_moves += 1
 	_refresh_move_counter()
 
+#Esto es una vez que el haz de luz llega a su destino
 func _on_beam_reached_target() -> void:
 	_timer_active = false
 	var par: int

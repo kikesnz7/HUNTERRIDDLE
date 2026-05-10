@@ -181,7 +181,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
 theme_override_styles/normal = ExtResource("4_rxi3g")
-text = "  Simular  "
+text = "  Reiniciar  "
 
 [node name="SimulateBtn" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1342780570]
 layout_mode = 2
