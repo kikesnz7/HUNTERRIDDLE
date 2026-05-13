@@ -4,6 +4,7 @@ extends Control
 const SCORE_BASE      := 100
 const SCORE_PENALTY   := -10
 const SCORE_PAR_BONUS := 50
+const NEXT_SCENE_PATH_MENU: String = "res://Escenas/UI/ZORRO/ZorroScreen.tscn"
 
 # ── Referencias a nodos ───────────────────────────────────────────────────
 @onready var level_title   : Label         = find_child("LevelTitle",   true, false)
@@ -17,6 +18,7 @@ const SCORE_PAR_BONUS := 50
 @onready var completion_msg: Label         = find_child("CompletionMsg", true, false)
 @onready var score_label   : Label         = find_child("ScoreLabel",   true, false)
 @onready var next_btn      : Button        = find_child("NextBtn",      true, false)
+@onready var menu_btn      : Button        = find_child("MenuBtn",      true, false)
 
 # ── Estado ────────────────────────────────────────────────────────────────
 var _level_data   : Dictionary = {}
@@ -49,12 +51,17 @@ func _ready() -> void:
 	if nxt:
 		nxt.pressed.connect(_on_next_pressed)
 
+	var menu := find_child("MenuBtn", true, false)
+	if menu:
+		menu.pressed.connect(_on_menu_pressed)
+
 	if board:
 		board.block_moved.connect(_on_block_moved)
 		board.beam_reached_target.connect(_on_beam_reached_target)
 	else:
 		push_warning("Board no encontrado en PuzzleScreen")
 	# Nivel de prueba temporal
+	#estilo JSON para mayor entendimiento jeje, asi mucho mejor
 	var test_level := {
 	"name": "Nivel Ejemplo",
 	"size": 5,
@@ -98,6 +105,10 @@ func _on_reset_pressed() -> void:
 func _on_back_pressed() -> void:
 	emit_signal("back_pressed")
 
+func _on_menu_pressed() -> void:
+	emit_signal("menu_pressed")
+	go_to_next_scene()
+
 func _on_next_pressed() -> void:
 	pass  # el padre decide qué nivel cargar a continuación
 
@@ -125,6 +136,16 @@ func _refresh_move_counter() -> void:
 	var par: int
 	par = _level_data.get("moves_par", 0)
 	move_counter.text = "Movs: %d / par %d" % [_moves, par]
+	
+func go_to_next_scene() -> void:
+	# Opcional: Si tienes un Autoload llamado 'Global' para guardar el estado, hazlo aquí:
+	# Global.is_user_logged_in = is_logged_in
+	
+	# Cambiar a la escena del juego
+	var error = get_tree().change_scene_to_file(NEXT_SCENE_PATH_MENU)
+	
+	if error != OK:
+		print("Error al cambiar de escena. Verifica la ruta: ", NEXT_SCENE_PATH_MENU)
 
 func _update_timer_label() -> void:
 	var m := int(_elapsed) / 60
