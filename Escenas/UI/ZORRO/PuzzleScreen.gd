@@ -28,7 +28,7 @@ var _timer_active : bool = false
 
 signal level_completed(score: int)
 signal back_pressed
-
+signal menu_pressed
 # ── Ciclo de vida ─────────────────────────────────────────────────────────
 func _ready() -> void:
 	await get_tree().process_frame
