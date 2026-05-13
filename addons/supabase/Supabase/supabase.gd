@@ -7,7 +7,8 @@ var auth : SupabaseAuth
 var database : SupabaseDatabase
 var realtime : SupabaseRealtime
 var storage : SupabaseStorage
-
+const URL = "https://bsiocvjcdfjkpwpsdvdl.supabase.co"
+const API_KEY = "sb_secret_WRnKvqKcbfgYgcHI5SCwyg_vMfkgbYx"
 var debug: bool = false
 
 var config : Dictionary = {
@@ -20,7 +21,62 @@ var header : PackedStringArray = [
 	"Content-Type: application/json",
 	"Accept: application/json"
 ]
+signal auth_success(user_data)
+signal auth_error(error_message)
+# Sesión activa
+var access_token: String = ""
+var current_user: Dictionary = {}
 
+func sign_up(email: String, password: String, nombre: String) -> void:
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(_on_signup_completed.bind(http))
+	var body = JSON.stringify({
+	"email": email,
+	"password": password,
+	"data": {"nombre": nombre}  # <-- va a raw_user_meta_data
+	})
+	var headers = [
+	"Content-Type: application/json",
+	"apikey: " + API_KEY
+	]
+	http.request(URL + "/auth/v1/signup", headers, HTTPClient.METHOD_POST, body)
+func sign_in(email: String, password: String) -> void:
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(_on_signin_completed.bind(http))
+	var body = JSON.stringify({"email": email, "password": password})
+	var headers = [
+	"Content-Type: application/json",
+	"apikey: " + API_KEY
+	]
+	# ✅ Sin /rest/v1, solo /auth/v1/token
+	http.request(URL + "/auth/v1/token?grant_type=password", headers, HTTPClient.METHOD_POST, body)
+
+func _on_signup_completed(result, response_code, _headers, body, http: HTTPRequest) -> void:
+	http.queue_free()
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var data = json.get_data()
+
+	if response_code == 200:
+		emit_signal("auth_success", data)
+	else:
+		var msg = data.get("msg", data.get("message", "Error al registrar"))
+		emit_signal("auth_error", msg)
+
+
+func _on_signin_completed(result, response_code, _headers, body, http: HTTPRequest) -> void:
+	http.queue_free()
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var data = json.get_data()
+
+	if response_code == 200:
+		emit_signal("auth_success", data)
+	else:
+		var msg = data.get("error_description", data.get("msg", "Error al iniciar sesión"))
+		emit_signal("auth_error", msg)
 func _ready() -> void:
 	load_config()
 	load_nodes()
@@ -58,3 +114,6 @@ func set_debug(debugging: bool) -> void:
 
 func _print_debug(msg: String) -> void:
 	if debug: print_debug(msg)
+func _save_session(data: Dictionary) -> void:
+	access_token = data.get("access_token", "")
+	current_user = data.get("user", {})

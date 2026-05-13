@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dwxdvlia3e1kb"]
 
 [ext_resource type="Texture2D" uid="uid://c4g0kjibmak7p" path="res://assets PROV/flechaizqValidada.svg" id="1_5km3d"]
+[ext_resource type="Script" uid="uid://2mmf12m8c3ja" path="res://Escenas/UI/scripts/ZorroScreen.gd" id="1_yse72"]
 [ext_resource type="FontFile" uid="uid://blufchrq548bf" path="res://fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf" id="2_yse72"]
 [ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_224kd"]
 [ext_resource type="FontFile" uid="uid://b56lqtrbltw8y" path="res://fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf" id="4_ldpqf"]
+[ext_resource type="Script" uid="uid://b3lhx8lek50dl" path="res://Escenas/UI/scripts/ProgressBand.gd" id="5_224kd"]
 [ext_resource type="PackedScene" uid="uid://d1f11nhnsftid" path="res://Escenas/UI/UtilsScenes/StatPill.tscn" id="5_jm4h3"]
 [ext_resource type="FontFile" uid="uid://fhm1ykxrbm73" path="res://fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf" id="6_boggr"]
 [ext_resource type="StyleBox" uid="uid://dcop4tm57gmro" path="res://Estilos/botonFlecha.tres" id="7_fdoss"]
@@ -148,38 +150,6 @@ corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5km3d"]
-content_margin_left = 12.0
-content_margin_top = 14.0
-content_margin_right = 12.0
-content_margin_bottom = 14.0
-bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yse72"]
-content_margin_left = 12.0
-content_margin_top = 14.0
-content_margin_right = 12.0
-content_margin_bottom = 14.0
-bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_224kd"]
 content_margin_left = 12.0
 content_margin_top = 14.0
@@ -217,12 +187,12 @@ content_margin_left = 12.0
 content_margin_top = 14.0
 content_margin_right = 12.0
 content_margin_bottom = 14.0
-bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
+bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
+border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -233,12 +203,12 @@ content_margin_left = 12.0
 content_margin_top = 14.0
 content_margin_right = 12.0
 content_margin_bottom = 14.0
-bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
+bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
+border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -308,6 +278,38 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsrtn"]
+content_margin_left = 12.0
+content_margin_top = 14.0
+content_margin_right = 12.0
+content_margin_bottom = 14.0
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akf55"]
+content_margin_left = 12.0
+content_margin_top = 14.0
+content_margin_right = 12.0
+content_margin_bottom = 14.0
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wupg"]
 content_margin_top = 10.0
 content_margin_bottom = 14.0
@@ -322,6 +324,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yse72")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1843343777]
 layout_mode = 1
@@ -408,6 +411,7 @@ theme_override_constants/separation = 0
 [node name="ProgressBand" type="PanelContainer" parent="ScrollContainer/VBoxContainer" unique_id=63583205]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kt2dm")
+script = ExtResource("5_224kd")
 
 [node name="ProgVBox" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/ProgressBand" unique_id=886209680]
 layout_mode = 2
@@ -423,7 +427,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.76862746, 0.5372549, 0.43529412, 1)
 theme_override_fonts/font = ExtResource("3_224kd")
 theme_override_font_sizes/font_size = 10
-text = "predefinido progreso label"
+text = "progreso · dificultad fácil"
 
 [node name="PtsLabel" type="Label" parent="ScrollContainer/VBoxContainer/ProgressBand/ProgVBox/PogHBox" unique_id=193494351]
 layout_mode = 2
@@ -431,7 +435,7 @@ size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.47843137, 0.1882353, 0.0627451, 1)
 theme_override_fonts/font = ExtResource("4_ldpqf")
 theme_override_font_sizes/font_size = 14
-text = "38 pts"
+text = "0 pts"
 horizontal_alignment = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="ScrollContainer/VBoxContainer/ProgressBand/ProgVBox" unique_id=2022445657]
@@ -439,8 +443,8 @@ custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_q7qdu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_uf3mq")
+max_value = 1000.0
 step = 1.0
-value = 38.0
 show_percentage = false
 
 [node name="StatsRow" type="PanelContainer" parent="ScrollContainer/VBoxContainer" unique_id=318237799]
@@ -556,23 +560,22 @@ icon_alignment = 1
 [node name="levelsgrid" type="MarginContainer" parent="ScrollContainer/VBoxContainer/LevelsSection" unique_id=559120908]
 layout_mode = 2
 theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 14
 
 [node name="LevelsGrid" type="GridContainer" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid" unique_id=671802972]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 2
+theme_override_constants/v_separation = 40
 
 [node name="Level1" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=627617126 instance=ExtResource("9_tob8f")]
 modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(250, 125)
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_5km3d")
+theme_override_styles/panel = SubResource("StyleBoxFlat_224kd")
 level_name = "El primer paso"
 stars = 3
 state = 1
@@ -582,7 +585,7 @@ modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(250, 170)
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_yse72")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ldpqf")
 level_number = 2
 level_name = "Obstaculos fijos"
 state = 1
@@ -592,7 +595,7 @@ modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_224kd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jm4h3")
 level_number = 3
 level_name = "Prepara tu ingenio"
 state = 1
@@ -601,7 +604,7 @@ state = 1
 modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_ldpqf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_boggr")
 level_number = 4
 level_name = "Bloques increibles"
 state = 1
@@ -609,29 +612,35 @@ state = 1
 [node name="LevelCard3" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=204586736 instance=ExtResource("9_tob8f")]
 custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jm4h3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdoss")
+level_number = 5
 
 [node name="LevelCard4" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=210152957 instance=ExtResource("9_tob8f")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_boggr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_p1t2i")
+level_number = 6
 
 [node name="LevelCard5" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=78083428 instance=ExtResource("9_tob8f")]
 custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fdoss")
+theme_override_styles/panel = SubResource("StyleBoxFlat_tob8f")
+level_number = 7
 
 [node name="LevelCard6" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=265656425 instance=ExtResource("9_tob8f")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_p1t2i")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sec8w")
+level_number = 8
 
 [node name="LevelCard7" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=1660661289 instance=ExtResource("9_tob8f")]
 custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tob8f")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsrtn")
+level_number = 9
 
 [node name="LevelCard8" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=1358118946 instance=ExtResource("9_tob8f")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_sec8w")
+theme_override_styles/panel = SubResource("StyleBoxFlat_akf55")
+level_number = 10
 
 [node name="BottomBar" type="PanelContainer" parent="." unique_id=1354082533]
 custom_minimum_size = Vector2(300, 100)
@@ -651,18 +660,18 @@ layout_mode = 2
 theme_override_constants/separation = 300
 alignment = 1
 
-[node name="NavItem3" parent="BottomBar/HBoxContainer" unique_id=1847018352 instance=ExtResource("10_sec8w")]
+[node name="NavItem_inicio" parent="BottomBar/HBoxContainer" unique_id=1847018352 instance=ExtResource("10_sec8w")]
 modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 is_active = true
 
-[node name="NavItem" parent="BottomBar/HBoxContainer" unique_id=22519683 instance=ExtResource("10_sec8w")]
+[node name="NavItem_Niveles" parent="BottomBar/HBoxContainer" unique_id=22519683 instance=ExtResource("10_sec8w")]
 modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 theme_override_constants/separation = 4
 label_text = "Niveles"
 is_active = true
 
-[node name="NavItem2" parent="BottomBar/HBoxContainer" unique_id=162931204 instance=ExtResource("10_sec8w")]
+[node name="NavItem_Ranking" parent="BottomBar/HBoxContainer" unique_id=162931204 instance=ExtResource("10_sec8w")]
 layout_mode = 2
 label_text = "Ranking"
