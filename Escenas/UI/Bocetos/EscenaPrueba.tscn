@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://f5rcvgue4whg"]
+
+[node name="Node2D" type="Node2D" unique_id=304404297]
+
+[node name="Control" type="Control" parent="." unique_id=1483998482]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=580490135]
+layout_mode = 0
+offset_right = 264.0
+offset_bottom = 399.0

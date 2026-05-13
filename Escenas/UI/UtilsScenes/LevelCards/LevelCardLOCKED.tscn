@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://c62r713rdtrp2"]
+
+[ext_resource type="Script" uid="uid://c10lnt2pp5xbf" path="res://Escenas/UI/scripts/LevelCard.gd" id="1_1jbek"]
+[ext_resource type="FontFile" uid="uid://bvyjesfulacui" path="res://fonts/Space_Mono/SpaceMono-Bold.ttf" id="1_21ycs"]
+[ext_resource type="FontFile" uid="uid://c63mplgu8mp8q" path="res://fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf" id="2_qooiw"]
+[ext_resource type="FontFile" uid="uid://b611jufxnhg27" path="res://fonts/Space_Mono/SpaceMono-BoldItalic.ttf" id="3_xqr6n"]
+[ext_resource type="StyleBox" uid="uid://dcop4tm57gmro" path="res://Estilos/botonFlecha.tres" id="5_purx0"]
+[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets PROV/FlechaDerecha-.svg" id="6_nvfwq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_purx0"]
+content_margin_left = 12.0
+content_margin_top = 14.0
+content_margin_right = 12.0
+content_margin_bottom = 14.0
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5yt5"]
+content_margin_left = 3.0
+bg_color = Color(0.98039216, 0.92156863, 0.90588236, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qooiw"]
+content_margin_bottom = 10.0
+bg_color = Color(0.8163107, 0.5620152, 0.3675539, 1)
+draw_center = false
+
+[node name="LevelCard" type="PanelContainer" unique_id=627617126]
+modulate = Color(1, 1, 1, 0.65)
+clip_contents = true
+custom_minimum_size = Vector2(165, 125)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_purx0")
+script = ExtResource("1_1jbek")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=107601840]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BadgeLabel" type="Label" parent="VBoxContainer" unique_id=1671514319]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5647059, 0.5647059, 0.627451, 1)
+theme_override_fonts/font = ExtResource("1_21ycs")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_x5yt5")
+text = "Bloqueado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberLabel" type="Label" parent="VBoxContainer" unique_id=220174165]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8826248, 0.41363585, 0.17914131, 1)
+theme_override_fonts/font = ExtResource("2_qooiw")
+theme_override_font_sizes/font_size = 35
+text = "01"
+
+[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=763894063]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.63, 0.39080998, 0.20789999, 1)
+theme_override_fonts/font = ExtResource("3_xqr6n")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_qooiw")
+horizontal_alignment = 1
+
+[node name="Entrar" type="Button" parent="VBoxContainer" unique_id=704936546]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_styles/normal = ExtResource("5_purx0")
+disabled = true
+text = "                   "
+icon = ExtResource("6_nvfwq")
+autowrap_trim_flags = 0
+icon_alignment = 1
