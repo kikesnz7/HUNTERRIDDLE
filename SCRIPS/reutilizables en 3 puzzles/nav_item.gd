@@ -7,6 +7,8 @@ extends VBoxContainer
 
 @export var is_active : bool = false:
 	set(v): is_active = v; _refresh()
+	
+@onready var nav_btn     : TextureButton        = find_child("NavBtn",     true, false)
 
 const COLOR_ACTIVE   = Color("#D4622A")
 const COLOR_INACTIVE = Color("#7A3010")

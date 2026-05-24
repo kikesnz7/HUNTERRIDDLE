@@ -4,17 +4,17 @@
 [ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_theme"]
 [ext_resource type="Script" uid="uid://ch5xajhif87a5" path="res://SCRIPS/config/users_progress.gd" id="3_scr"]
 
-[node name="UsersProgress" type="CanvasLayer"]
+[node name="UsersProgress" type="CanvasLayer" unique_id=529156966]
 script = ExtResource("3_scr")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1734143118]
 offset_right = 1080.0
 offset_bottom = 1920.0
 texture = ExtResource("1_bg")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1474076022]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,40 +26,40 @@ theme_override_constants/margin_top = 180
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 180
 
-[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer" unique_id=393589307]
 layout_mode = 2
 theme = ExtResource("2_theme")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=887834931]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=749059560]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Titulo" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="Titulo" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=232623433]
 layout_mode = 2
 theme_override_font_sizes/font_size = 52
 text = "Progreso de Usuarios"
 horizontal_alignment = 1
 
-[node name="Estado" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="Estado" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1406684071]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1329004539]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Lista" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="Lista" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1694852561]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 18
 
-[node name="Volver" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="Volver" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=30341437]
 layout_mode = 2
 text = "Volver"

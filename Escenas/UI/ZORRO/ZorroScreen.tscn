@@ -399,7 +399,7 @@ anchor_right = 0.96500003
 anchor_bottom = 1.0
 offset_top = 65.0
 offset_right = 39.799927
-offset_bottom = -446.0
+offset_bottom = -268.0
 follow_focus = true
 horizontal_scroll_mode = 0
 
@@ -640,7 +640,7 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -435.0
+offset_top = -271.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8

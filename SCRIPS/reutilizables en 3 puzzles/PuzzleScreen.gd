@@ -78,7 +78,7 @@ func _ready() -> void:
 			GameState.current_par
 		)
 
-	call_deferred("_check_mirror_rot_tutorial")
+	_check_all_tutorials()
 
 func _process(delta: float) -> void:
 	if _timer_active:
@@ -145,7 +145,7 @@ func _on_next_pressed() -> void:
 	load_level(next_data)
 	if puzzle_manager:
 		puzzle_manager.start_level(GameState.current_animal, GameState.current_level, GameState.current_par)
-	call_deferred("_check_mirror_rot_tutorial")
+	_check_all_tutorials()
 
 func _next_level_id(current: String) -> String:
 	if current == "tutorial":
@@ -194,9 +194,9 @@ func _refresh_reset_label() -> void:
 	if not reset_btn:
 		return
 	if _resets_used == 0:
-		reset_btn.text = "↺ ×1"
+		reset_btn.text = "Reiniciar"
 	else:
-		reset_btn.text = "↺"
+		reset_btn.text = "Reiniciar Otra vez"
 
 func _stars_from_moves_and_resets(extra: int) -> int:
 	var base := 3 if extra == 0 else (2 if extra <= 2 else 1)
@@ -327,17 +327,24 @@ func _check_mirror_rot_tutorial() -> void:
 	var n := GameState.current_level.trim_prefix("level_").to_int()
 	if n < 7:
 		return
+	if _tutorial_overlay != null:
+		return
 	if FileAccess.file_exists("user://mirror_rot_v2_seen.flag"):
+		_check_toggle_tutorial()
 		return
 	_show_mirror_rot_tutorial()
 
 func _show_mirror_rot_tutorial() -> void:
+	_timer_active = false
 	var scaffold := _build_overlay_scaffold(Color("#C04080"))
 	_tutorial_overlay = scaffold["layer"]
 	var vbox : VBoxContainer = scaffold["vbox"]
 
-	_add_label(vbox, "Espejo Rotatorio", 22, Color("#7A3010"))
-	_add_label(vbox, "El espejo muestra hacia dónde saldrá el haz. Tócalo para girar su dirección. No puede devolver el haz hacia donde llegó. Ahora gíralo a ↓ para alcanzar el destino ◎.", 13, Color("#D4622A"), true)
+	_add_label(vbox, "Espejo Rotatorio", 24, Color("#7A3010"))
+	vbox.add_child(HSeparator.new())
+	_add_label(vbox, "La flecha del espejo indica hacia dónde saldrá el haz al tocarlo.", 16, Color("#5A3010"), true)
+	_add_label(vbox, "Tócalo para cambiar su dirección.\nNo puede rebotar el haz de vuelta.", 16, Color("#D4622A"), true)
+	_add_label(vbox, "Gíralo a  ↓  para que el haz llegue a  ◎", 16, Color("#7A3010"), true)
 
 	var board_scene : PackedScene = preload("res://Escenas/UI/ZORRO/Board.tscn")
 	var tut_board : Node = board_scene.instantiate()
@@ -359,12 +366,11 @@ func _show_mirror_rot_tutorial() -> void:
 
 	_tutorial_done_btn = Button.new()
 	_tutorial_done_btn.text = "¡Entendido!"
-	_tutorial_done_btn.add_theme_font_size_override("font_size", 16)
+	_tutorial_done_btn.add_theme_font_size_override("font_size", 18)
 	_tutorial_done_btn.visible = false
 	_tutorial_done_btn.pressed.connect(_on_mirror_rot_tutorial_done)
 	vbox.add_child(_tutorial_done_btn)
 
-	# Mostrar el haz inicial (va hacia arriba) para que el jugador vea el estado de partida
 	await get_tree().process_frame
 	tut_board.simulate_beam()
 
@@ -381,6 +387,7 @@ func _on_mirror_rot_tutorial_done() -> void:
 		_tutorial_overlay.queue_free()
 		_tutorial_overlay = null
 	_tutorial_done_btn = null
+	_check_toggle_tutorial()
 
 func _on_mirror_flipped() -> void:
 	_show_toast("La dirección de este espejo ha cambiado")
@@ -429,3 +436,129 @@ func _save_mid_level() -> void:
 	state["moves"]   = _moves
 	state["elapsed"] = _elapsed
 	ProgressManager.save_mid_level(GameState.current_animal, GameState.current_level, state)
+
+# ── Sistema de tutoriales ──────────────────────────────────────────────────────
+
+func _check_all_tutorials() -> void:
+	call_deferred("_check_intro_tutorial")
+	call_deferred("_check_loss_cell_tutorial")
+	call_deferred("_check_mirror_rot_tutorial")
+
+# ── Tutorial intro (nivel "tutorial") ─────────────────────────────────────────
+
+func _check_intro_tutorial() -> void:
+	if GameState.current_level != "tutorial":
+		return
+	if _tutorial_overlay != null:
+		return
+	_show_intro_tutorial()
+
+func _show_intro_tutorial() -> void:
+	_timer_active = false
+	var scaffold := _build_overlay_scaffold(Color("#D4622A"))
+	_tutorial_overlay = scaffold["layer"]
+	var vbox : VBoxContainer = scaffold["vbox"]
+
+	_add_label(vbox, "Cómo jugar", 24, Color("#7A3010"))
+	vbox.add_child(HSeparator.new())
+
+	_add_label(vbox, "◉  →  →  ◎", 26, Color("#D4A843"))
+	_add_label(vbox, "El haz parte de ◉ y debe llegar a ◎.\nPulsa → para simular el trayecto.", 16, Color("#5A3010"), true)
+
+	_add_label(vbox, "▣  →  □", 22, Color("#D4622A"))
+	_add_label(vbox, "Arrastra bloques ▣ a huecos libres.\nLos bloques fijos ■ no se mueven.", 16, Color("#5A3010"), true)
+
+	_add_label(vbox, "╲    ╱", 26, Color("#6A3A80"))
+	_add_label(vbox, "Los espejos desvían el haz:", 16, Color("#5A3010"), true)
+	_add_label(vbox, "╲  convierte  →  en  ↓  (y  ↑  en  ←)", 15, Color("#6A3A80"), true)
+	_add_label(vbox, "╱  convierte  →  en  ↑  (y  ↓  en  ←)", 15, Color("#6A3A80"), true)
+	_add_label(vbox, "Un espejo ▣ también se puede arrastrar.", 15, Color("#5A3010"), true)
+
+	_add_button(vbox, "¡A jugar!", 18, _on_intro_tutorial_done)
+
+func _on_intro_tutorial_done() -> void:
+	var f := FileAccess.open("user://tutorial_intro_seen.flag", FileAccess.WRITE)
+	if f: f.store_string("1"); f.close()
+	if _tutorial_overlay:
+		_tutorial_overlay.queue_free()
+		_tutorial_overlay = null
+	_tutorial_done_btn = null
+	_timer_active = true
+
+# ── Tutorial celda trampa (nivel 5+) ──────────────────────────────────────────
+
+func _check_loss_cell_tutorial() -> void:
+	if not GameState.current_level.begins_with("level_"):
+		return
+	var n := GameState.current_level.trim_prefix("level_").to_int()
+	if n < 5:
+		return
+	if FileAccess.file_exists("user://loss_cell_v1_seen.flag"):
+		return
+	if _tutorial_overlay != null:
+		return
+	_show_loss_cell_tutorial()
+
+func _show_loss_cell_tutorial() -> void:
+	_timer_active = false
+	var scaffold := _build_overlay_scaffold(Color("#E8C020"))
+	_tutorial_overlay = scaffold["layer"]
+	var vbox : VBoxContainer = scaffold["vbox"]
+
+	_add_label(vbox, "¡Cuidado!", 24, Color("#7A3010"))
+	vbox.add_child(HSeparator.new())
+	_add_label(vbox, "☠", 42, Color("#E8C020"))
+	_add_label(vbox, "Este nivel tiene celdas trampa.\nSi arrastras un bloque ▣ y lo dejas encima de una, perderás el nivel y tendrás que reiniciar.", 16, Color("#5A3010"), true)
+	_add_label(vbox, "Planifica bien antes de mover.", 16, Color("#D4622A"), true)
+	_add_button(vbox, "Entendido", 18, _on_loss_cell_tutorial_done)
+
+func _on_loss_cell_tutorial_done() -> void:
+	var f := FileAccess.open("user://loss_cell_v1_seen.flag", FileAccess.WRITE)
+	if f: f.store_string("1"); f.close()
+	if _tutorial_overlay:
+		_tutorial_overlay.queue_free()
+		_tutorial_overlay = null
+	_tutorial_done_btn = null
+	_timer_active = true
+	# Si estamos en nivel 7+ encadenamos los tutoriales de espejos/toggle
+	if GameState.current_level.begins_with("level_"):
+		var n := GameState.current_level.trim_prefix("level_").to_int()
+		if n >= 7:
+			_check_mirror_rot_tutorial()
+
+# ── Tutorial toggle + bloque acción (nivel 7+, tras espejo rotatorio) ─────────
+
+func _check_toggle_tutorial() -> void:
+	if FileAccess.file_exists("user://toggle_action_v1_seen.flag"):
+		return
+	if _tutorial_overlay != null:
+		return
+	_show_toggle_tutorial()
+
+func _show_toggle_tutorial() -> void:
+	_timer_active = false
+	var scaffold := _build_overlay_scaffold(Color("#4080D4"))
+	_tutorial_overlay = scaffold["layer"]
+	var vbox : VBoxContainer = scaffold["vbox"]
+
+	_add_label(vbox, "Nuevas mecánicas", 24, Color("#7A3010"))
+	vbox.add_child(HSeparator.new())
+
+	_add_label(vbox, "⚡  Toggle", 22, Color("#D4A843"))
+	_add_label(vbox, "El haz lo atraviesa sin bloquearse y, al hacerlo, destruye su Bloque Acción vinculado.", 16, Color("#5A3010"), true)
+
+	_add_label(vbox, "⊗  Bloque Acción", 22, Color("#C04040"))
+	_add_label(vbox, "Bloquea el paso del haz. Solo desaparece cuando el haz activa su Toggle.", 16, Color("#5A3010"), true)
+
+	_add_label(vbox, "Primero activa el Toggle,\nluego el camino quedará libre.", 16, Color("#D4622A"), true)
+
+	_add_button(vbox, "Entendido", 18, _on_toggle_tutorial_done)
+
+func _on_toggle_tutorial_done() -> void:
+	var f := FileAccess.open("user://toggle_action_v1_seen.flag", FileAccess.WRITE)
+	if f: f.store_string("1"); f.close()
+	if _tutorial_overlay:
+		_tutorial_overlay.queue_free()
+		_tutorial_overlay = null
+	_tutorial_done_btn = null
+	_timer_active = true

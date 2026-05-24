@@ -22,7 +22,12 @@ func _ready() -> void:
 	await _cargar_ranking()
 
 func _on_volver_pressed() -> void:
-	get_tree().change_scene_to_file(CONFIG_PATH)
+	var destino := GameState.ranking_return_scene
+	GameState.ranking_return_scene = ""
+	if destino != "":
+		get_tree().change_scene_to_file(destino)
+	else:
+		get_tree().change_scene_to_file(CONFIG_PATH)
 
 func _cargar_ranking() -> void:
 	# 1. Suma estrellas por user_id a través de las 4 tablas de progreso.

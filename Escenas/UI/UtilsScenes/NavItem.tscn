@@ -16,7 +16,7 @@ grow_vertical = 2
 alignment = 1
 script = ExtResource("1_on7c6")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=437306875]
+[node name="NavBtn" type="TextureButton" parent="." unique_id=437306875]
 layout_mode = 2
 texture_normal = SubResource("CompressedTexture2D_g8l41")
 stretch_mode = 5
@@ -29,5 +29,6 @@ text = "inicio"
 horizontal_alignment = 1
 
 [node name="ActiveDot" type="Control" parent="." unique_id=841360803]
+visible = false
 layout_mode = 2
 script = ExtResource("2_on7c6")

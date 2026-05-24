@@ -10,7 +10,9 @@ const ANIMAL_ID    = "fox"
 const PUZZLE_SCENE = "res://Escenas/UI/ZORRO/PuzzleZorro.tscn"
 const FOX_MID      = Color("#D4622A")
 const FOX_LIGHT    = Color("#F2C4A8")
-const NEXT_SCENE_PATH_MENU = "res://Escenas/StartMenu.tscn"
+const NEXT_SCENE_PATH_MENU  = "res://Escenas/StartMenu.tscn"
+const GLOBAL_STARS_PATH     : String = "res://Escenas/UI/GlobalStars.tscn"
+const TEN_EN_CUENTA_PATH    : String = "res://Escenas/UI/TenEnCuenta.tscn"
 # Pares de movimientos por nivel
 const LEVEL_PARS = {
 	"tutorial": 2,
@@ -212,13 +214,17 @@ func _on_level_unlocked(animal_id: String, level_id: String):
 
 func _setup_nav():
 	if nav_inicio:
-		nav_inicio.set_active(false)
+		nav_inicio.set_active(true)
 		nav_inicio.gui_input.connect(_on_nav_inicio)
 	if nav_niveles:
 		nav_niveles.set_active(true)
 	if nav_ranking:
-		nav_ranking.set_active(false)
+		nav_ranking.set_active(true)
 		nav_ranking.gui_input.connect(_on_nav_ranking)
+	var tut_btn := find_child("botonInicioNivel", true, false)
+	if tut_btn:
+		tut_btn.pressed.connect(_on_tutorial_btn_pressed)
+	_setup_tec_button()
 
 func _on_nav_inicio(event: InputEvent):
 	if event is InputEventMouseButton \
@@ -226,8 +232,33 @@ func _on_nav_inicio(event: InputEvent):
 	and event.pressed:
 		ConfirmExitDialog.ask(func(): emit_signal("back_pressed"))
 
+func _on_tutorial_btn_pressed() -> void:
+	GameState.current_animal = ANIMAL_ID
+	GameState.current_level  = "tutorial"
+	GameState.current_par    = LEVEL_PARS.get("tutorial", 2)
+	get_tree().change_scene_to_file(PUZZLE_SCENE)
+
+func _setup_tec_button() -> void:
+	var levels_section := find_child("LevelsSection", true, false)
+	if not levels_section:
+		return
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 18)
+	margin.add_theme_constant_override("margin_right", 18)
+	var btn := Button.new()
+	btn.text = "Ten en cuenta"
+	btn.pressed.connect(_on_ten_en_cuenta_pressed)
+	margin.add_child(btn)
+	levels_section.add_child(margin)
+	levels_section.move_child(margin, 1)
+
+func _on_ten_en_cuenta_pressed() -> void:
+	get_tree().change_scene_to_file(TEN_EN_CUENTA_PATH)
+
 func _on_nav_ranking(event: InputEvent):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
+		GameState.ranking_return_scene = "res://Escenas/UI/ZORRO/ZorroScreen.tscn"
+		get_tree().change_scene_to_file(GLOBAL_STARS_PATH)
 		emit_signal("ranking_pressed")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_i5yvu"]
 [ext_resource type="Script" uid="uid://b5pm8cq42mweg" path="res://Escenas/start_menu.gd" id="1_mn5wr"]
 [ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_qi6qt"]
-[ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://Assets Gabri/Fonts/PlayFair/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="4_6idjo"]
+[ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="4_6idjo"]
 
 [node name="StartMenu" type="CanvasLayer" unique_id=1669501279]
 script = ExtResource("1_mn5wr")
