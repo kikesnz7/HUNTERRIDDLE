@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://diyeqb48m7ssj"]
+
+[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_ugmfc"]
+[ext_resource type="Texture2D" uid="uid://bhtc5yo8sx6t3" path="res://Assets Gabri/Flecha.png" id="2_spe6c"]
+[ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="3_03825"]
+
+[node name="VistaPuzzles" type="Control" unique_id=1088361473]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1777127150]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("1_ugmfc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=484710473]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer2" unique_id=1182703026]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Volver" type="Button" parent="VBoxContainer2/TopBar" unique_id=1336423719]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("2_spe6c")
+
+[node name="Estrellas" type="Button" parent="VBoxContainer2/TopBar" unique_id=212306173]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=1985173299]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme = ExtResource("3_03825")
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer" unique_id=1858942728]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=309072408]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer" unique_id=1702521330]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1002554777]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=489757426]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=161677352]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer2" unique_id=1961644181]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=940607610]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=929252402]
+layout_mode = 2

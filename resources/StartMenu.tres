@@ -2,6 +2,7 @@
 
 [resource]
 Button/font_sizes/font_size = 20
+HeaderLarge/font_sizes/font_size = 90
 Label/font_sizes/font_size = 30
 MarginContainer/constants/margin_bottom = 300
 MarginContainer/constants/margin_left = 100

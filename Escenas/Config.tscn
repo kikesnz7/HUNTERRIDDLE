@@ -4,10 +4,13 @@
 [ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_sj5ep"]
 [ext_resource type="Script" uid="uid://dyiid7rf0y2m5" path="res://Escenas/config.gd" id="3_cfgscr"]
 
-[node name="Configuracion" type="CanvasLayer" unique_id=885813466]
+[node name="Configuracion" type="Control" unique_id=679559891]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("3_cfgscr")
 
 [node name="Background" type="TextureRect" parent="." unique_id=447336672]
+layout_mode = 0
 offset_right = 1080.0
 offset_bottom = 1920.0
 texture = ExtResource("1_31e86")
@@ -15,15 +18,14 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=356055395]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -540.0
-offset_top = -960.0
-offset_right = 540.0
-offset_bottom = 960.0
+offset_right = 1080.0
+offset_bottom = 1920.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_sj5ep")
