@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c62r713rdtrp2"]
 
-[ext_resource type="Script" uid="uid://c10lnt2pp5xbf" path="res://Escenas/UI/scripts/LevelCard.gd" id="1_1jbek"]
+[ext_resource type="Script" uid="uid://c10lnt2pp5xbf" path="res://SCRIPS/reutilizables en 3 puzzles/LevelCard.gd" id="1_1jbek"]
 [ext_resource type="FontFile" uid="uid://bvyjesfulacui" path="res://fonts/Space_Mono/SpaceMono-Bold.ttf" id="1_21ycs"]
 [ext_resource type="FontFile" uid="uid://c63mplgu8mp8q" path="res://fonts/Playfair_Display/static/PlayfairDisplay-SemiBold.ttf" id="2_qooiw"]
 [ext_resource type="FontFile" uid="uid://b611jufxnhg27" path="res://fonts/Space_Mono/SpaceMono-BoldItalic.ttf" id="3_xqr6n"]
 [ext_resource type="StyleBox" uid="uid://dcop4tm57gmro" path="res://Estilos/botonFlecha.tres" id="5_purx0"]
-[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets PROV/FlechaDerecha-.svg" id="6_nvfwq"]
+[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets David/FlechaDerecha-.svg" id="6_nvfwq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_purx0"]
 content_margin_left = 12.0

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dwxdvlia3e1kb"]
 
-[ext_resource type="Texture2D" uid="uid://c4g0kjibmak7p" path="res://assets PROV/flechaizqValidada.svg" id="1_5km3d"]
-[ext_resource type="Script" uid="uid://2mmf12m8c3ja" path="res://Escenas/UI/scripts/ZorroScreen.gd" id="1_yse72"]
+[ext_resource type="Texture2D" uid="uid://c4g0kjibmak7p" path="res://assets David/flechaizqValidada.svg" id="1_5km3d"]
+[ext_resource type="Script" uid="uid://2mmf12m8c3ja" path="res://SCRIPS/zorro/ZorroScreen.gd" id="1_yse72"]
 [ext_resource type="FontFile" uid="uid://blufchrq548bf" path="res://fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf" id="2_yse72"]
 [ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_224kd"]
 [ext_resource type="FontFile" uid="uid://b56lqtrbltw8y" path="res://fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf" id="4_ldpqf"]
-[ext_resource type="Script" uid="uid://b3lhx8lek50dl" path="res://Escenas/UI/scripts/ProgressBand.gd" id="5_224kd"]
+[ext_resource type="Script" uid="uid://b3lhx8lek50dl" path="res://SCRIPS/reutilizables en 3 puzzles/ProgressBand.gd" id="5_224kd"]
 [ext_resource type="PackedScene" uid="uid://d1f11nhnsftid" path="res://Escenas/UI/UtilsScenes/StatPill.tscn" id="5_jm4h3"]
 [ext_resource type="FontFile" uid="uid://fhm1ykxrbm73" path="res://fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf" id="6_boggr"]
 [ext_resource type="StyleBox" uid="uid://dcop4tm57gmro" path="res://Estilos/botonFlecha.tres" id="7_fdoss"]
-[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets PROV/FlechaDerecha-.svg" id="8_p1t2i"]
+[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets David/FlechaDerecha-.svg" id="8_p1t2i"]
 [ext_resource type="PackedScene" uid="uid://c62r713rdtrp2" path="res://Escenas/UI/UtilsScenes/LevelCards/LevelCardLOCKED.tscn" id="9_tob8f"]
 [ext_resource type="PackedScene" uid="uid://cplhvko21v5nx" path="res://Escenas/UI/UtilsScenes/NavItem.tscn" id="10_sec8w"]
 
@@ -171,12 +171,12 @@ content_margin_left = 12.0
 content_margin_top = 14.0
 content_margin_right = 12.0
 content_margin_bottom = 14.0
-bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -187,12 +187,12 @@ content_margin_left = 12.0
 content_margin_top = 14.0
 content_margin_right = 12.0
 content_margin_bottom = 14.0
-bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -203,12 +203,12 @@ content_margin_left = 12.0
 content_margin_top = 14.0
 content_margin_right = 12.0
 content_margin_bottom = 14.0
-bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
+bg_color = Color(0.95686275, 0.9490196, 0.9372549, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.83137256, 0.38431373, 0.16470589, 0.2)
+border_color = Color(0.5647059, 0.5647059, 0.627451, 0.2)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -345,7 +345,7 @@ layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="botonAtras" type="Button" parent="VBoxContainer/TopBar/HBoxContainer" unique_id=628913115]
+[node name="BackBtn" type="Button" parent="VBoxContainer/TopBar/HBoxContainer" unique_id=628913115]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -581,33 +581,24 @@ stars = 3
 state = 1
 
 [node name="Level2" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=576737864 instance=ExtResource("9_tob8f")]
-modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(250, 170)
 layout_mode = 2
-mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ldpqf")
 level_number = 2
 level_name = "Obstaculos fijos"
-state = 1
 
 [node name="LevelCard" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=302443810 instance=ExtResource("9_tob8f")]
-modulate = Color(1, 1, 1, 1)
 custom_minimum_size = Vector2(165, 170)
 layout_mode = 2
-mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_jm4h3")
 level_number = 3
 level_name = "Prepara tu ingenio"
-state = 1
 
 [node name="LevelCard2" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=1788803097 instance=ExtResource("9_tob8f")]
-modulate = Color(1, 1, 1, 1)
 layout_mode = 2
-mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_boggr")
 level_number = 4
 level_name = "Bloques increibles"
-state = 1
 
 [node name="LevelCard3" parent="ScrollContainer/VBoxContainer/LevelsSection/levelsgrid/LevelsGrid" unique_id=204586736 instance=ExtResource("9_tob8f")]
 custom_minimum_size = Vector2(165, 170)
