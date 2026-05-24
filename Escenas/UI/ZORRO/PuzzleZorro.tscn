@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://c2axnrs5b87m5"]
 
-[ext_resource type="Texture2D" uid="uid://c4g0kjibmak7p" path="res://assets PROV/flechaizqValidada.svg" id="1_c1tq6"]
-[ext_resource type="Script" uid="uid://bbeyipu5cbaqb" path="res://Escenas/UI/ZORRO/PuzzleScreen.gd" id="1_guxig"]
+[ext_resource type="Texture2D" uid="uid://c4g0kjibmak7p" path="res://assets David/flechaizqValidada.svg" id="1_c1tq6"]
+[ext_resource type="Script" uid="uid://bbeyipu5cbaqb" path="res://SCRIPS/reutilizables en 3 puzzles/PuzzleScreen.gd" id="1_guxig"]
 [ext_resource type="FontFile" uid="uid://blufchrq548bf" path="res://fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf" id="2_m3lh4"]
+[ext_resource type="Script" uid="uid://bhsxbgtv6v4pk" path="res://Escenas/UI/PUZZLES/Puzzlemanager.gd" id="2_t7uyw"]
 [ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_rxi3g"]
 [ext_resource type="StyleBox" uid="uid://dcop4tm57gmro" path="res://Estilos/botonFlecha.tres" id="4_rxi3g"]
 [ext_resource type="PackedScene" uid="uid://v4nd5y83lymj" path="res://Escenas/UI/ZORRO/Board.tscn" id="5_f7sl2"]
-[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets PROV/FlechaDerecha-.svg" id="5_guxig"]
+[ext_resource type="Texture2D" uid="uid://m8rytcfmk5wd" path="res://assets David/FlechaDerecha-.svg" id="5_guxig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guxig"]
 content_margin_left = 18.0
@@ -49,9 +50,6 @@ base_font = ExtResource("2_m3lh4")
 content_margin_right = 30.0
 bg_color = Color(0.9843137, 0.9411765, 0.9137255, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80r84"]
-bg_color = Color(0.81, 0.401625, 0.3645, 0.42352942)
-
 [node name="PuzzleZorro" type="Control" unique_id=1100072685]
 layout_mode = 3
 anchor_right = 1.0
@@ -61,6 +59,9 @@ offset_bottom = -0.80010986
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_guxig")
+
+[node name="PuzzleManager" type="Node" parent="." unique_id=1898053352]
+script = ExtResource("2_t7uyw")
 
 [node name="PuzzleTopBar" type="PanelContainer" parent="." unique_id=429577229]
 layout_mode = 0
@@ -76,7 +77,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_guxig")
 layout_mode = 2
 alignment = 1
 
-[node name="botonAtras" type="Button" parent="PuzzleTopBar/TopBar/HBoxContainer" unique_id=731416405]
+[node name="BackBtn" type="Button" parent="PuzzleTopBar/TopBar/HBoxContainer" unique_id=731416405]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -194,48 +195,3 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = ExtResource("4_rxi3g")
 icon = ExtResource("5_guxig")
-
-[node name="CompletionOverlay" type="CanvasLayer" parent="." unique_id=707985181]
-
-[node name="CompletionPanel" type="PanelContainer" parent="CompletionOverlay" unique_id=1830341550]
-offset_left = 11.0
-offset_top = 34.0
-offset_right = 1097.0
-offset_bottom = 768.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_80r84")
-
-[node name="CompletionVbox" type="VBoxContainer" parent="CompletionOverlay/CompletionPanel" unique_id=1312288210]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="CompletionMsg" type="Label" parent="CompletionOverlay/CompletionPanel/CompletionVbox" unique_id=1788785602]
-layout_mode = 2
-
-[node name="ScoreLabel" type="Label" parent="CompletionOverlay/CompletionPanel/CompletionVbox" unique_id=842575966]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CompletionOverlay/CompletionPanel/CompletionVbox" unique_id=1134112478]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="NextBtn" type="Button" parent="CompletionOverlay/CompletionPanel/CompletionVbox/HBoxContainer" unique_id=258923007]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
-theme_override_styles/normal = ExtResource("4_rxi3g")
-text = "    Siguiente nivel     "
-icon = ExtResource("5_guxig")
-alignment = 0
-icon_alignment = 2
-
-[node name="MenuBtn" type="Button" parent="CompletionOverlay/CompletionPanel/CompletionVbox/HBoxContainer" unique_id=2080883318]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.83137256, 0.38431373, 0.16470589, 1)
-theme_override_styles/normal = ExtResource("4_rxi3g")
-text = "   Salir al menu principal    
-"
-icon = ExtResource("5_guxig")
-alignment = 0
-autowrap_trim_flags = 0
-icon_alignment = 2

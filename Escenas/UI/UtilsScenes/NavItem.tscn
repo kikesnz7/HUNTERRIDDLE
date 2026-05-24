@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cplhvko21v5nx"]
 
-[ext_resource type="Script" uid="uid://dulm1daa0sscj" path="res://Escenas/UI/scripts/nav_item.gd" id="1_on7c6"]
-[ext_resource type="Script" uid="uid://bm6uhey0nrqod" path="res://Escenas/UI/scripts/active_dot.gd" id="2_on7c6"]
+[ext_resource type="Script" uid="uid://dulm1daa0sscj" path="res://SCRIPS/reutilizables en 3 puzzles/nav_item.gd" id="1_on7c6"]
+[ext_resource type="Script" uid="uid://bm6uhey0nrqod" path="res://SCRIPS/reutilizables en 3 puzzles/active_dot.gd" id="2_on7c6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g8l41"]
 load_path = "res://.godot/imported/navicon-casa25x25.svg-3e0adce07fe336dc6a188f2826f55154.ctex"
@@ -29,6 +29,5 @@ text = "inicio"
 horizontal_alignment = 1
 
 [node name="ActiveDot" type="Control" parent="." unique_id=841360803]
-visible = false
 layout_mode = 2
 script = ExtResource("2_on7c6")
