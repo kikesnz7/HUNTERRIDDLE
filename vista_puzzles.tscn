@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://diyeqb48m7ssj"]
 
 [ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_ugmfc"]
-[ext_resource type="Texture2D" uid="uid://bhtc5yo8sx6t3" path="res://Assets Gabri/Flecha.png" id="2_spe6c"]
+[ext_resource type="Texture2D" uid="uid://743egtbh1rk8" path="res://Assets Gabri/Sprites/Flecha.png" id="2_spe6c"]
 [ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="3_03825"]
+[ext_resource type="Texture2D" uid="uid://b0h8h1j08fc4t" path="res://Assets Gabri/Sprites/Star-stone.png" id="3_lysbi"]
 
 [node name="VistaPuzzles" type="Control" unique_id=1088361473]
 layout_mode = 3
@@ -25,17 +26,25 @@ offset_bottom = 1920.0
 
 [node name="TopBar" type="HBoxContainer" parent="VBoxContainer2" unique_id=1182703026]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer2/TopBar" unique_id=34905596]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
 
 [node name="Volver" type="Button" parent="VBoxContainer2/TopBar" unique_id=1336423719]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 icon = ExtResource("2_spe6c")
+flat = true
 
 [node name="Estrellas" type="Button" parent="VBoxContainer2/TopBar" unique_id=212306173]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
+size_flags_vertical = 4
+icon = ExtResource("3_lysbi")
+flat = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2" unique_id=1985173299]
 layout_mode = 2
@@ -57,9 +66,12 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1002554777]
 layout_mode = 2
+text = "Desafío del Zorro "
 
 [node name="Button" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=489757426]
 layout_mode = 2
+size_flags_horizontal = 3
+text = "Empezar"
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer2/MarginContainer/VBoxContainer" unique_id=161677352]
 layout_mode = 2
@@ -69,6 +81,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=940607610]
 layout_mode = 2
+text = "Desafío del Búho "
 
-[node name="Button" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=929252402]
+[node name="Button" type="Button" parent="VBoxContainer2/MarginContainer/VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1946882505]
 layout_mode = 2
+size_flags_horizontal = 3
+text = "Empezar
+"

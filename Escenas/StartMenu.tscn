@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_i5yvu"]
 [ext_resource type="Script" uid="uid://b5pm8cq42mweg" path="res://Escenas/start_menu.gd" id="1_mn5wr"]
 [ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_qi6qt"]
-[ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://Assets Gabri/Fonts/PlayFair/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="4_6idjo"]
+[ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="4_6idjo"]
 [ext_resource type="Texture2D" uid="uid://sp64jblsu32r" path="res://Assets Gabri/Logo.png" id="4_qj5cn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7af7"]
 
 [node name="StartMenu" type="CanvasLayer" unique_id=1669501279]
 script = ExtResource("1_mn5wr")
@@ -54,6 +56,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 10
 theme = ExtResource("2_qi6qt")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r7af7")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelBotones" unique_id=1181245164]
 layout_mode = 2
@@ -72,16 +75,19 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
+theme = ExtResource("2_qi6qt")
 text = "Entrar"
 
 [node name="Config" type="Button" parent="MarginContainer/VBoxContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=1616326423]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_qi6qt")
 text = "Configuración"
 
 [node name="Idioma" type="MenuButton" parent="MarginContainer/VBoxContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=320544089]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_qi6qt")
 disabled = true
 text = "Idioma"
 flat = false
@@ -92,6 +98,7 @@ popup/item_0/id = 0
 [node name="Iniciar Sesion" type="Button" parent="MarginContainer/VBoxContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=1274402908]
 layout_mode = 2
 size_flags_stretch_ratio = 5.0
+theme = ExtResource("2_qi6qt")
 text = "Iniciar Sesion
 
 "
@@ -99,6 +106,7 @@ text = "Iniciar Sesion
 [node name="Salir" type="Button" parent="MarginContainer/VBoxContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=1330098769]
 layout_mode = 2
 size_flags_vertical = 4
+theme = ExtResource("2_qi6qt")
 text = "Salir"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=855283241]

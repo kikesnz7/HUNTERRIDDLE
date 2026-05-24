@@ -1,10 +1,28 @@
 [gd_resource type="Theme" format=3 uid="uid://btf0i62i3kmkg"]
 
+[ext_resource type="Texture2D" uid="uid://uyjlx17l8jqv" path="res://Assets Gabri/Sprites/Button.png" id="1_i67uj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i67uj"]
+texture = ExtResource("1_i67uj")
+texture_margin_left = 70.0
+texture_margin_top = 40.0
+texture_margin_right = 70.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_or32u"]
+texture = ExtResource("1_i67uj")
+texture_margin_left = 60.0
+texture_margin_top = 40.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
+
 [resource]
 Button/font_sizes/font_size = 20
+Button/styles/normal = SubResource("StyleBoxTexture_i67uj")
 HeaderLarge/font_sizes/font_size = 90
 Label/font_sizes/font_size = 30
 MarginContainer/constants/margin_bottom = 300
 MarginContainer/constants/margin_left = 100
 MarginContainer/constants/margin_right = 100
 MarginContainer/constants/margin_top = 300
+MenuButton/styles/normal = SubResource("StyleBoxTexture_or32u")

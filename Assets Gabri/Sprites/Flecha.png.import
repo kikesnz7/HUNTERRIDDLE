@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uyjlx17l8jqv"
-path="res://.godot/imported/Cartel.png-bbf92e39a1e6516484461919455a525f.ctex"
+uid="uid://743egtbh1rk8"
+path="res://.godot/imported/Flecha.png-ced70eddd97574c9b9ac16f6563b4af2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets Gabri/Cartel.png"
-dest_files=["res://.godot/imported/Cartel.png-bbf92e39a1e6516484461919455a525f.ctex"]
+source_file="res://Assets Gabri/Sprites/Flecha.png"
+dest_files=["res://.godot/imported/Flecha.png-ced70eddd97574c9b9ac16f6563b4af2.ctex"]
 
 [params]
 
