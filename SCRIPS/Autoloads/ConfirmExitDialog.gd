@@ -4,7 +4,6 @@
 extends CanvasLayer
 
 var _on_confirm : Callable
-var _root       : Control   # se anima en _animate_in
 
 var _btn_salir    : Button
 var _btn_cancelar : Button
@@ -25,11 +24,10 @@ func ask(on_confirm: Callable) -> void:
 
 func _build_ui() -> void:
 	# Control raíz: absorbe clics para que no lleguen a la escena de fondo
-	_root = Control.new()
-	_root.mouse_filter = Control.MOUSE_FILTER_STOP
-	add_child(_root)
-	_root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	var root := _root
+	var root := Control.new()
+	root.mouse_filter = Control.MOUSE_FILTER_STOP
+	add_child(root)
+	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 
 	# Fondo oscuro semitransparente
 	var bg := ColorRect.new()
@@ -124,9 +122,8 @@ func _make_btn(label: String, bg: Color, fg: Color, primary: bool) -> Button:
 # ─── Animación ────────────────────────────────────────────────────────────────
 
 func _animate_in() -> void:
-	_root.modulate.a = 0.0
 	var tw := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tw.tween_property(_root, "modulate:a", 1.0, 0.25)
+	tw.tween_property(self, "modulate:a", 1.0, 0.25)
 
 # ─── Callbacks ────────────────────────────────────────────────────────────────
 

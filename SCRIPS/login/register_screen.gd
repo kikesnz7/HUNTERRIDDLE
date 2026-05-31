@@ -2,7 +2,6 @@ extends Control
 
 @onready var email_input    : LineEdit = $PanelContainer/MarginContainer/VBoxContainer/CorreoInpt
 @onready var password_input : LineEdit = $PanelContainer/MarginContainer/VBoxContainer/ContraInpt
-@onready var confirm_input  : LineEdit = $PanelContainer/MarginContainer/VBoxContainer/ConfirmaInpt
 @onready var btn_register   : Button   = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Registrar
 @onready var btn_offline    : Button   = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Button
 @onready var btn_to_login   : Button   = $"PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Iniciar sesion"
@@ -13,15 +12,15 @@ extends Control
 var nombre_input : LineEdit = null
 var btn_google   : Button   = null
 
-# Capturado en _on_register_pressed, consumido en _on_auth_success.
-var _pending_display_name : String = ""
-
 const LOGIN_SCENE : String = "res://Escenas/UI/Bocetos/LoginScreen.tscn"
 const GAME_SCENE  : String = "res://Escenas/UI/ZORRO/ZorroScreen.tscn"
 
 func _ready() -> void:
 	nombre_input = get_node_or_null("PanelContainer/MarginContainer/VBoxContainer/NombreInpt")
 	btn_google   = get_node_or_null("PanelContainer/MarginContainer/VBoxContainer/GoogleBtn")
+	var btn_back : Button = get_node_or_null("BackBtn")
+	if btn_back:
+		btn_back.pressed.connect(func(): get_tree().change_scene_to_file(LOGIN_SCENE))
 
 	Supabase.auth_success.connect(_on_auth_success)
 	Supabase.auth_error.connect(_on_auth_error)
@@ -52,9 +51,6 @@ func _on_register_pressed() -> void:
 	if pass_.length() < 6:
 		msg_password.text = "Mínimo 6 caracteres."
 		return
-	if confirm_input.text != pass_:
-		msg_password.text = "Las contraseñas no coinciden."
-		return
 
 	var nombre := ""
 	if nombre_input != null:
@@ -64,7 +60,6 @@ func _on_register_pressed() -> void:
 
 	msg_email.text        = "Registrando cuenta..."
 	btn_register.disabled = true
-	_pending_display_name = nombre
 	Supabase.sign_up(email, pass_, nombre)
 
 
@@ -89,21 +84,8 @@ func _on_auth_success(user_data: Dictionary) -> void:
 			btn_google.disabled = false
 		return
 
-	Supabase.access_token    = user_data.get("access_token", "")
 	ProgressManager.user_id  = uid
 	ProgressManager.is_guest = false
-	ProgressManager.reset_for_new_session()
-
-	# Crea la fila en profiles con email + display_name (is_admin/is_deleted=false por defecto).
-	var user_email := ""
-	if user_obj is Dictionary:
-		user_email = user_obj.get("email", "")
-	if user_email == "":
-		user_email = email_input.text.strip_edges()
-	var nombre := _pending_display_name
-	_pending_display_name = ""
-	await UserProfile.load_profile(uid, user_email, nombre)
-
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 
@@ -122,7 +104,6 @@ func _on_offline_pressed() -> void:
 	Supabase.access_token    = "invitado"
 	ProgressManager.user_id  = ""
 	ProgressManager.is_guest = true
-	ProgressManager.reset_for_new_session()
 	get_tree().change_scene_to_file(GAME_SCENE)
 
 

@@ -12,9 +12,13 @@ var btn_google : Button = null
 
 const NEXT_SCENE_PATH     : String = "res://Escenas/UI/ZORRO/ZorroScreen.tscn"
 const REGISTER_SCENE_PATH : String = "res://Escenas/UI/Bocetos/RegisterScreen.tscn"
+const START_MENU_PATH     : String = "res://Escenas/StartMenu.tscn"
 
 func _ready() -> void:
 	btn_google = get_node_or_null("PanelContainer/MarginContainer/VBoxContainer/GoogleBtn")
+	var btn_back : Button = get_node_or_null("BackBtn")
+	if btn_back:
+		btn_back.pressed.connect(func(): get_tree().change_scene_to_file(START_MENU_PATH))
 
 	Supabase.auth_success.connect(_on_auth_success)
 	Supabase.auth_error.connect(_on_auth_error)
@@ -55,24 +59,8 @@ func _on_auth_success(user_data: Dictionary) -> void:
 			btn_google.disabled = false
 		return
 
-	Supabase.access_token    = user_data.get("access_token", "")
 	ProgressManager.user_id  = uid
 	ProgressManager.is_guest = false
-	ProgressManager.reset_for_new_session()
-
-	# Carga (o crea) el perfil del usuario para obtener email + flag is_admin.
-	# Si Supabase devuelve user_metadata.nombre (lo guarda sign_up), lo propagamos.
-	var user_email := ""
-	var nombre := ""
-	if user_obj is Dictionary:
-		user_email = user_obj.get("email", "")
-		var meta = user_obj.get("user_metadata", null)
-		if meta is Dictionary:
-			nombre = String(meta.get("nombre", ""))
-	if user_email == "":
-		user_email = email_input.text.strip_edges()
-	await UserProfile.load_profile(uid, user_email, nombre)
-
 	get_tree().change_scene_to_file(NEXT_SCENE_PATH)
 
 
@@ -88,7 +76,6 @@ func _on_offline_pressed() -> void:
 	Supabase.access_token = "invitado"
 	ProgressManager.user_id  = ""
 	ProgressManager.is_guest = true
-	ProgressManager.reset_for_new_session()
 	get_tree().change_scene_to_file(NEXT_SCENE_PATH)
 
 

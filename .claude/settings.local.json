@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "mcp__godot__get_project_info",
-      "Bash(powershell -Command \"Select-String -Path 'SCRIPS/zorro/board.gd' -Pattern 'simulate_beam|Line2D|draw' | head -30\")"
+      "Bash(powershell -Command \"Select-String -Path 'SCRIPS/zorro/board.gd' -Pattern 'simulate_beam|Line2D|draw' | head -30\")",
+      "Bash(python tools/extract_files.py)",
+      "Bash(python3 tools/extract_v2.py)",
+      "Bash(python3 tools/extract_v3.py)",
+      "Bash(python3 *)",
+      "Bash(git checkout *)"
     ]
   }
 }

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cplhvko21v5nx"]
+
+[ext_resource type="Script" uid="uid://dulm1daa0sscj" path="res://SCRIPS/reutilizables en 3 puzzles/nav_item.gd" id="1_on7c6"]
+[ext_resource type="Script" uid="uid://bm6uhey0nrqod" path="res://SCRIPS/reutilizables en 3 puzzles/active_dot.gd" id="2_on7c6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g8l41"]
+load_path = "res://.godot/imported/navicon-casa25x25.svg-3e0adce07fe336dc6a188f2826f55154.ctex"
+
+[node name="NavItem" type="VBoxContainer" unique_id=1847018352]
+modulate = Color(1, 1, 1, 0.35)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_on7c6")
+
+[node name="NavBtn" type="TextureButton" parent="." unique_id=437306875]
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_g8l41")
+stretch_mode = 5
+
+[node name="NavLabel" type="Label" parent="." unique_id=867144190]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.1882353, 0.0627451, 1)
+theme_override_font_sizes/font_size = 8
+text = "inicio"
+horizontal_alignment = 1
+
+[node name="ActiveDot" type="Control" parent="." unique_id=841360803]
+visible = false
+layout_mode = 2
+script = ExtResource("2_on7c6")
