@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://bwm0qjihcq7x6"]
+
+[ext_resource type="Script" uid="uid://cregscreen001" path="res://SCRIPS/login/register_screen.gd" id="1_8x11t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nsn5"]
+bg_color = Color(0.90877205, 0.95548636, 0.96419245, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.827451, 0.81960785, 0.78039217, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_3nsn5"]
+
+[node name="RegisterScreen" type="Control" unique_id=1538564329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8x11t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=776093319]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8671112, 1, 0.91647995, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=904743577]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.767
+offset_left = -2.0
+offset_top = 12.0
+offset_bottom = 274.92297
+theme_override_styles/panel = SubResource("StyleBoxFlat_3nsn5")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1041669720]
+layout_mode = 2
+theme = SubResource("Theme_3nsn5")
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=884233828]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("ContraInpt")
+theme_override_constants/separation = 46
+
+[node name="HunterRidddle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1797142590]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14901961, 0.12941177, 0.36078432, 1)
+theme_override_font_sizes/font_size = 20
+text = "
+HunterRiddle
+"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1934568512]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14901961, 0.12941177, 0.36078432, 1)
+theme_override_font_sizes/font_size = 20
+text = "    
+Activar tu cuenta                 activa tu mente
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nombre" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=-1293966295]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.48, 0.48, 0.48, 1)
+theme_override_font_sizes/font_size = 25
+text = "Nombre de usuario"
+
+[node name="NombreInpt" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=-1293966294]
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.94509804, 0.9372549, 0.9098039, 1)
+theme_override_font_sizes/font_size = 26
+placeholder_text = "introduce tu nombre"
+alignment = 1
+
+[node name="Correo" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1167007631]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.66
+theme_override_colors/font_color = Color(0.48, 0.48, 0.48, 1)
+theme_override_font_sizes/font_size = 25
+text = "Correo Electronico"
+
+[node name="CorreoInpt" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=211863593]
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.94509804, 0.9372549, 0.9098039, 1)
+theme_override_font_sizes/font_size = 26
+placeholder_text = "introduce correo electronico"
+alignment = 1
+
+[node name="ValCorr" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=512156513]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8073119, 0.39967677, 0.36641076, 1)
+
+[node name="Contraseña" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1588425300]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+theme_override_font_sizes/font_size = 26
+text = "Contraseña"
+
+[node name="ContraInpt" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1639584906]
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.94509804, 0.9372549, 0.9098039, 1)
+theme_override_font_sizes/font_size = 26
+placeholder_text = "introduce contraseña"
+alignment = 1
+secret = true
+
+[node name="ConfirmarContra" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=-1293965295]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+theme_override_font_sizes/font_size = 26
+text = "Confirmar Contraseña"
+
+[node name="ConfirmaInpt" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=-1293965294]
+layout_mode = 2
+theme_override_colors/selection_color = Color(0.94509804, 0.9372549, 0.9098039, 1)
+theme_override_font_sizes/font_size = 26
+placeholder_text = "repite la contraseña"
+alignment = 1
+secret = true
+
+[node name="ValContras" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1434520162]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.80784315, 0.4, 0.3647059, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1394617556]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=490459500]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Registrar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=727627221]
+custom_minimum_size = Vector2(275, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "Registrar"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1964876619]
+custom_minimum_size = Vector2(275, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "Jugar sin conexion"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1344279552]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 11
+
+[node name="Iniciar sesion" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=367465739]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "Iniciar sesion"
+
+[node name="SeparadorGoogle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=-1293966293]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 18
+text = "— o continúa con —"
+horizontal_alignment = 1
+
+[node name="GoogleBtn" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=-1293966292]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Continuar con Google"
+
+[node name="ValSesion" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2100274081]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9667712, 0.19455355, 0, 1)
+theme_override_font_sizes/font_size = 16
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="BackBtn" type="Button" parent="." unique_id=3200001]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 130.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 22
+text = "← Volver"

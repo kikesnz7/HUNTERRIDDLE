@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1f11nhnsftid"]
 
-[ext_resource type="Script" uid="uid://17f1ivr20ply" path="res://Escenas/UI/scripts/StatPill.gd" id="1_qgh0x"]
+[ext_resource type="Script" uid="uid://17f1ivr20ply" path="res://SCRIPS/reutilizables en 3 puzzles/StatPill.gd" id="1_qgh0x"]
 [ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="2_u4d41"]
 [ext_resource type="FontFile" uid="uid://2n0xs3nlrstp" path="res://fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_wgsvi"]
 

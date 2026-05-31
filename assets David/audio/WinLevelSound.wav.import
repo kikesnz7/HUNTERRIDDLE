@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6okn8svtuahp"
+path="res://.godot/imported/WinLevelSound.wav-6aa54d0753c75fc4c78c67ed78988da8.sample"
+
+[deps]
+
+source_file="res://assets David/audio/WinLevelSound.wav"
+dest_files=["res://.godot/imported/WinLevelSound.wav-6aa54d0753c75fc4c78c67ed78988da8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

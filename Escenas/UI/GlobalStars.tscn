@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bglstars0001"]
+
+[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_bg"]
+[ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://cng13qk46svta" path="res://SCRIPS/config/global_stars.gd" id="3_scr"]
+
+[node name="GlobalStars" type="CanvasLayer"]
+script = ExtResource("3_scr")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("1_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 200
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Titulo" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Ranking de Estrellas"
+horizontal_alignment = 1
+
+[node name="Estado" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Lista" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Volver" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volver"

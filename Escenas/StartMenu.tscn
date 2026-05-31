@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://ceqin254r47ub"]
+
+[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_i5yvu"]
+[ext_resource type="Script" uid="uid://b5pm8cq42mweg" path="res://Escenas/start_menu.gd" id="1_mn5wr"]
+[ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_qi6qt"]
+[ext_resource type="FontFile" uid="uid://l0r14x3kpqye" path="res://fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf" id="4_6idjo"]
+
+[node name="StartMenu" type="CanvasLayer" unique_id=1669501279]
+script = ExtResource("1_mn5wr")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1615365522]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i5yvu")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1469283586]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1687558652]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_qi6qt")
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 200
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=166021702]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Titulo" type="Label" parent="VBoxContainer/MarginContainer" unique_id=845043909]
+layout_mode = 2
+theme = ExtResource("2_qi6qt")
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("4_6idjo")
+theme_override_font_sizes/font_size = 60
+text = "Hunter Riddle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelBotones" type="PanelContainer" parent="VBoxContainer/MarginContainer" unique_id=1504628270]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_qi6qt")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/PanelBotones" unique_id=1181245164]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/PanelBotones/MarginContainer" unique_id=564551991]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Entrar" type="Button" parent="VBoxContainer/MarginContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=2030671715]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+text = "Entrar"
+
+[node name="Config" type="Button" parent="VBoxContainer/MarginContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=1616326423]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Configuración"
+
+[node name="Idioma" type="MenuButton" parent="VBoxContainer/MarginContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=320544089]
+layout_mode = 2
+size_flags_vertical = 4
+disabled = true
+text = "Idioma"
+flat = false
+item_count = 1
+popup/item_0/text = "Español"
+popup/item_0/id = 0
+
+[node name="Salir" type="Button" parent="VBoxContainer/MarginContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=1330098769]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Salir"
+
+[node name="Iniciar Sesion" type="Button" parent="VBoxContainer/MarginContainer/PanelBotones/MarginContainer/VBoxContainer" unique_id=1274402908]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+text = "Iniciar Sesion
+
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=855283241]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Mensaje" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1651210955]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1

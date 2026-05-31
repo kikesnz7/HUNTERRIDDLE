@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://iuexkcm3c4vy"]
 
-[ext_resource type="Script" uid="uid://ce6a80brufl53" path="res://Escenas/UI/ZORRO/cell.gd" id="1_cg0sn"]
+[ext_resource type="Script" uid="uid://ce6a80brufl53" path="res://SCRIPS/zorro/cell.gd" id="1_cg0sn"]
 
 [node name="Cell" type="PanelContainer" unique_id=703320561]
 script = ExtResource("1_cg0sn")

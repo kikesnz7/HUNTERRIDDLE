@@ -11,24 +11,36 @@ config_version=5
 [application]
 
 config/name="HunterRiddle"
-run/main_scene="uid://dwxdvlia3e1kb"
+run/main_scene="res://Escenas/StartMenu.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://assets PROV/icon.svg"
+config/icon="res://assets David/icon.svg"
 
 [autoload]
 
-Supabase="*uid://eekrb4dsdvfi"
+Supabase="*res://addons/supabase/Supabase/supabase.gd"
+SupabaseClient="*res://SCRIPS/Autoloads/SupabaseClient.gd"
+ProgressManager="*res://SCRIPS/Autoloads/ProgressManager.gd"
+GameState="*res://SCRIPS/Autoloads/GameState.gd"
+ConfirmExitDialog="*res://SCRIPS/Autoloads/ConfirmExitDialog.gd"
+FoxLevels="*res://SCRIPS/zorro/FoxLevels.gd"
+UserProfile="*res://SCRIPS/Autoloads/UserProfile.gd"
+AudioManager="*res://SCRIPS/Autoloads/AudioManager.gd"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1920
+window/size/viewport_width=710
+window/size/viewport_height=1260
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
@@ -42,4 +54,5 @@ locale/locale_filter_mode=0
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.9764706, 0.96862745, 0.9529412, 1)

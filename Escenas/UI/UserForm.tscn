@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://bcniw0sw608tl"]
+
+[ext_resource type="Texture2D" uid="uid://dn3u7pkhfwsyn" path="res://Assets Gabri/Background.png" id="1_bg"]
+[ext_resource type="Theme" uid="uid://btf0i62i3kmkg" path="res://resources/StartMenu.tres" id="2_theme"]
+[ext_resource type="Script" path="res://SCRIPS/config/user_form.gd" id="3_scr"]
+
+[node name="UserForm" type="CanvasLayer" unique_id=1752109740]
+script = ExtResource("3_scr")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1826845044]
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("1_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=915985806]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 700
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer" unique_id=160451832]
+layout_mode = 2
+theme = ExtResource("2_theme")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=377159956]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=346911965]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HeaderRow" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=635362675]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BtnCancelar" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HeaderRow" unique_id=2098293323]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "← Volver"
+
+[node name="Titulo" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HeaderRow" unique_id=1974004883]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 46
+text = "Usuario"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1547935578]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1882696778]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CamposVBox" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=124451074]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="LabelNombre" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox" unique_id=1858446857]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Nombre"
+
+[node name="FieldNombre" type="LineEdit" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox" unique_id=1874716364]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "Sin nombre"
+
+[node name="SeccionCrear" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox" unique_id=855802403]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="LabelEmail" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox/SeccionCrear" unique_id=1261626146]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Email"
+
+[node name="FieldEmail" type="LineEdit" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox/SeccionCrear" unique_id=1092308631]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+placeholder_text = "usuario@example.com"
+
+[node name="LabelPassword" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox/SeccionCrear" unique_id=1060375517]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Contraseña (mín. 6 caracteres)"
+
+[node name="FieldPassword" type="LineEdit" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox/SeccionCrear" unique_id=374558414]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+secret = true
+
+[node name="CheckAdmin" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox" unique_id=1457851993]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Administrador"
+
+[node name="CheckActiva" type="CheckBox" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer/CamposVBox" unique_id=1311506854]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Cuenta activa"
+
+[node name="MsgEstado" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=985538767]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.3, 0.15, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="BtnGuardar" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=729188602]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Guardar"
